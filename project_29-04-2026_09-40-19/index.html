@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Auto Deployer</title>
+    <!-- Thư viện CSS Tailwind để làm đẹp giao diện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Thư viện Icon Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Tùy chỉnh font chữ */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 flex flex-col items-center py-10 px-4 sm:px-6 lg:px-8">
+    
+    <div class="max-w-xl w-full space-y-8 bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        
+        <!-- Header -->
+        <div class="text-center">
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100">
+                <i class="ph ph-cloud-arrow-up text-3xl text-blue-600"></i>
+            </div>
+            <h2 class="mt-4 text-3xl font-extrabold text-gray-900">Trình Triển Khai Web</h2>
+            <p class="mt-2 text-sm text-gray-500">
+                Tải lên file HTML của bạn để tự động xuất bản thành trang web trực tuyến
+            </p>
+        </div>
+
+        <!-- Cảnh báo An toàn -->
+        <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-md">
+            <div class="flex">
+                <div class="flex-shrink-0 mt-0.5">
+                    <i class="ph-fill ph-shield-check text-green-500 text-lg"></i>
+                </div>
+                <div class="ml-3">
+                    <p class="text-xs text-green-700">
+                        <strong>Bảo mật:</strong> Hệ thống đã được tích hợp Backend API trên Cloudflare. Token của bạn được an toàn tuyệt đối.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form nhập liệu -->
+        <form id="deployForm" class="mt-4 space-y-6">
+            <div class="space-y-4">
+                
+                <!-- Upload File -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Chọn file HTML của bạn</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-400 transition-colors bg-white">
+                        <div class="space-y-1 text-center">
+                            <i class="ph ph-file-html text-5xl text-gray-400 mx-auto"></i>
+                            <div class="flex text-sm text-gray-600 justify-center mt-2">
+                                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none">
+                                    <span>Tải file lên</span>
+                                    <input id="file-upload" name="file-upload" type="file" accept=".html" class="sr-only">
+                                </label>
+                                <p class="pl-1">hoặc kéo thả vào đây</p>
+                            </div>
+                            <p class="text-xs text-gray-500">Chỉ hỗ trợ file .html</p>
+                        </div>
+                    </div>
+                    <!-- Hiển thị tên file đã chọn -->
+                    <div id="file-name-container" class="hidden mt-2 text-sm text-green-600 font-medium flex items-center gap-2">
+                        <i class="ph-fill ph-check-circle text-lg"></i> <span id="file-name-text"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button type="submit" id="submitBtn"
+                class="group relative w-full flex justify-center items-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-blue-300 transition-all shadow-md">
+                <i id="btnSpinner" class="ph ph-spinner animate-spin text-xl mr-2 hidden"></i>
+                <span id="btnText">Triển khai Website (Deploy)</span>
+            </button>
+        </form>
+
+        <!-- Khung Thông báo Lỗi -->
+        <div id="errorBox" class="hidden mt-4 bg-red-50 p-4 rounded-lg border border-red-200 flex items-start gap-3">
+            <i class="ph-fill ph-warning-circle text-red-500 text-xl mt-0.5 flex-shrink-0"></i>
+            <div class="text-sm text-red-700 whitespace-pre-line">
+                <strong class="block mb-1">Đã xảy ra lỗi:</strong>
+                <span id="errorText"></span>
+            </div>
+        </div>
+
+        <!-- Khung Thông báo Thành công -->
+        <div id="successBox" class="hidden mt-6 bg-green-50 p-6 rounded-xl border border-green-200 text-center space-y-4 shadow-inner">
+            <div class="flex justify-center">
+                <i class="ph-fill ph-check-circle text-green-500 text-5xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-green-800">Tuyệt vời! Đã đẩy file thành công.</h3>
+            <p class="text-sm text-green-700">
+                File HTML của bạn đã được đẩy lên thư mục mới. Do cơ chế của GitHub Pages, có thể mất từ <strong>30 giây đến 2 phút</strong> để website thực sự khả dụng trực tuyến.
+            </p>
+            
+            <div class="mt-4 p-3 bg-white rounded border border-green-200 flex items-center justify-between overflow-hidden">
+                <span id="deployedUrl" class="text-sm font-mono text-gray-600 truncate mr-4"></span>
+                <a id="deployedLink" href="#" target="_blank" rel="noreferrer"
+                    class="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 whitespace-nowrap bg-blue-50 px-3 py-1.5 rounded-md transition-colors">
+                    Truy cập <i class="ph ph-arrow-square-out"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script xử lý logic -->
+    <script>
+        const form = document.getElementById('deployForm');
+        const fileInput = document.getElementById('file-upload');
+        const fileNameContainer = document.getElementById('file-name-container');
+        const fileNameText = document.getElementById('file-name-text');
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnSpinner = document.getElementById('btnSpinner');
+        
+        const errorBox = document.getElementById('errorBox');
+        const errorText = document.getElementById('errorText');
+        
+        const successBox = document.getElementById('successBox');
+        const deployedUrlSpan = document.getElementById('deployedUrl');
+        const deployedLink = document.getElementById('deployedLink');
+
+        // --- ĐÂY LÀ API MÀ BẠN VỪA TẠO TRÊN CLOUDFLARE ---
+        const BACKEND_API_URL = "https://apiauto.25091159.workers.dev";
+
+        let selectedFile = null;
+
+        // Xử lý khi chọn file
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file && file.name.endsWith('.html')) {
+                selectedFile = file;
+                fileNameText.textContent = `Đã chọn: ${file.name}`;
+                fileNameContainer.classList.remove('hidden');
+                fileNameContainer.classList.add('flex');
+            } else {
+                alert("Vui lòng chỉ chọn file .html");
+                e.target.value = '';
+                selectedFile = null;
+                fileNameContainer.classList.add('hidden');
+                fileNameContainer.classList.remove('flex');
+            }
+        });
+
+        // Hàm chuyển đổi Text sang Base64
+        function encodeBase64(text) {
+            const bytes = new TextEncoder().encode(text);
+            const binString = Array.from(bytes, (byte) =>
+                String.fromCodePoint(byte)
+            ).join("");
+            return btoa(binString);
+        }
+
+        function setStatus(status, message = '', url = '') {
+            errorBox.classList.add('hidden');
+            successBox.classList.add('hidden');
+            submitBtn.disabled = false;
+            btnSpinner.classList.add('hidden');
+            btnText.textContent = 'Triển khai Website (Deploy)';
+
+            if (status === 'loading') {
+                submitBtn.disabled = true;
+                btnSpinner.classList.remove('hidden');
+                btnText.textContent = 'Đang đẩy sang máy chủ...';
+            } else if (status === 'error') {
+                errorText.textContent = message;
+                errorBox.classList.remove('hidden');
+            } else if (status === 'success') {
+                deployedUrlSpan.textContent = url;
+                deployedLink.href = url;
+                successBox.classList.remove('hidden');
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!selectedFile) {
+                setStatus('error', 'Lỗi: Bạn chưa chọn file HTML nào.');
+                return;
+            }
+
+            setStatus('loading');
+
+            try {
+                // Đọc file
+                const fileContent = await new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.onerror = (e) => reject(new Error("Lỗi khi đọc file"));
+                    reader.readAsText(selectedFile);
+                });
+
+                const base64Content = encodeBase64(fileContent);
+
+                // Ép buộc tạo tên thư mục theo định dạng: project_ngày-tháng-năm_giờ-phút-giây
+                const now = new Date();
+                const dd = String(now.getDate()).padStart(2, '0');
+                const mm = String(now.getMonth() + 1).padStart(2, '0');
+                const yyyy = now.getFullYear();
+                const hh = String(now.getHours()).padStart(2, '0');
+                const min = String(now.getMinutes()).padStart(2, '0');
+                const ss = String(now.getSeconds()).padStart(2, '0');
+                const finalPath = `project_${dd}-${mm}-${yyyy}_${hh}-${min}-${ss}`;
+
+                // Gửi file sang Cloudflare Worker kèm theo Tên đường dẫn ngày giờ
+                const response = await fetch(BACKEND_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        base64Content: base64Content,
+                        customPath: finalPath // Gửi biến ngày giờ lên backend
+                    }),
+                });
+
+                let responseData;
+                try {
+                    responseData = await response.json();
+                } catch (jsonErr) {
+                    throw new Error("Lỗi kết nối tới Backend. Hãy chắc chắn link Backend API hợp lệ.");
+                }
+
+                if (!response.ok || !responseData.success) {
+                    throw new Error(responseData.error || "Lỗi máy chủ không xác định");
+                }
+
+                setStatus('success', '', responseData.url);
+
+                form.reset();
+                selectedFile = null;
+                fileNameContainer.classList.add('hidden');
+                fileNameContainer.classList.remove('flex');
+
+            } catch (error) {
+                console.error(error);
+                setStatus('error', error.message);
+            }
+        });
+    </script>
+</body>
+</html>
