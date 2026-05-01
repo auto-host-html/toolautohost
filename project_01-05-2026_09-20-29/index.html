@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head><script>(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6ImVhNmYwY2RiYTEyYmRkMmU2NTE3MjQ1NmMxNjViYWQ0MTQzMWQxYjIiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxNzYzNTA0NDY4ODAwNTkyMTIxMCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzIyMjU2MTMzM2FlN2Y0OTRfaW5kZXguaHRtbC0zMzkifSwiZXhwIjoxNzc3NDI4NTI3LCJpYXQiOjE3Nzc0MjQ5MjcsImFsZyI6IlJTMjU2In0.c8vM7C1qi-alGcDueXKotzo9OmNzVQEAp5UUNGJI172CiUSU09NfLiTBFSjibeYBPFy8n5kaaDRTlXskjMdDcB2_X_AII8dOb35rPBF5HrGbsw5JmNyKgNc4Rk9pSFiPXCreQK45saSRq0YO7P83rtP4gyAcUGJEpDZkl9dvRXn2XDIScnhJQi7xWwDw_D3B_dLEpePEDA9rtezYAFA-9WL5I_6vbzpchdXyOyGCNBHTIBQ5vQKYAO57tpSc0YWgJs8fY_Az2MOg7Rgyuq9f3fnMPAJhLwpSv0YcHgm4zHbCwc-JPfR8S2ChMOlv8KyOK0ZpN5v04afZYBbYIYI6pA","c_222561333ae7f494_index.html-339")</script><script>(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){const d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);const c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{let a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){const b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{const c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){const c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{const c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){const c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);const e=yield c.blob();return new Promise((f,g)=>{const k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){let c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){const c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());let e;try{const f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){const b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");const c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;let c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){const c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{let g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){const g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){const b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{const e=d?(new URL(b,d||void 0)).toString():b;let f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){const [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;const c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c;const e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){const d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){const d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){let d=a.cssText;const c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){let g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];const b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){const d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){const g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}const d=new Set;b(a);return d}function ua(a,b){return t(function*(){const d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){const d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){const c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){const {width:d,height:c}=A(a,b);var e=yield wa(a,b);e=yield B(e);const f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=
+16384));f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;const c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){const a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){let b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){const b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script>(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script>
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.g=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);const f={type:"send",data:new Uint8Array(a)};let g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){const f=new MessageChannel;t=f.port1;const g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}const c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.h="";let l=0,t=null,r=null,q=[];const F=new TextEncoder,
+G=new TextDecoder;c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{let a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});const I=function(){let a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{const g=Math.random()*
+16|0;return(f==="x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;
+(g=t)==null||g.postMessage(a)}};Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);const C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");const E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{const k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script>((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-2.5-flash-image-preview","imageTransformModelName":"gemini-3-pro-image-preview-11-2025","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"]})</script><script>(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script>(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân - Trình bày kết quả bài tập dự án Tin học ứng dụng. Tổng hợp các kỹ năng số và nghiên cứu.">
+  <title>Portfolio Cá Nhân | Tin Học Ứng Dụng</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+    :root {
+      --bg-primary: #f8f9fa;
+      --bg-secondary: #e9ecef;
+      --bg-card: #ffffff;
+      --bg-glass: #ffffff;
+      --border-glass: #000000;
+      --text-primary: #000000;
+      --text-secondary: #212529;
+      --text-muted: #495057;
+      --accent-1: #000000;
+      --accent-2: #000000;
+      --accent-3: #000000;
+      --accent-4: #000000;
+      --gradient-main: #000000;
+      --gradient-warm: #000000;
+      --gradient-cool: #000000;
+      --shadow-glow: 12px 12px 0 0 #000000;
+      --radius-sm: 0;
+      --radius-md: 0;
+      --radius-lg: 0;
+      --radius-xl: 0;
+      --border-thick: 4px solid #000000;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* Image Grayscale Effect */
+    img {
+      filter: grayscale(100%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    img:hover, .project-card:hover img {
+      filter: grayscale(0%);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top:0; left:0; width:100%; z-index:1000;
+      padding: 16px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #ffffff;
+      border-bottom: var(--border-thick);
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled { padding: 12px 40px; box-shadow: 0 4px 0 0 #000; }
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #000;
+    }
+    .nav-links { display:flex; gap:8px; list-style:none; }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      padding: 8px 20px;
+      font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      border: 2px solid #000;
+      background: #f0f0f0;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      padding: 120px 40px 80px;
+    }
+    .hero-bg-grid {
+      position: absolute; inset:0;
+      background-image:
+        linear-gradient(#e5e5e5 2px, transparent 2px),
+        linear-gradient(90deg, #e5e5e5 2px, transparent 2px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative; z-index:1;
+      max-width: 900px; text-align: center;
+    }
+    .hero-avatar {
+      width: 160px; height: 160px;
+      margin: 0 auto 32px;
+      border: 4px solid #000;
+      background: #fff;
+      box-shadow: 8px 8px 0 0 #000;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px;
+      background: #fff;
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 0 #000;
+      font-size: 0.9rem; font-weight: 800; color: #000;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease;
+    }
+    .hero-badge .dot {
+      width:12px; height:12px;
+      background: #000;
+      border-radius: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; }
+      50% { opacity:0.2; }
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #000;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero-title .gradient-text {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: #000;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto 40px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-cta {
+      display: flex; gap: 16px; justify-content: center; flex-wrap:wrap;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .btn {
+      padding: 14px 32px;
+      font-size: 0.95rem; font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer; 
+      display: inline-flex; align-items: center; gap: 8px;
+      border: var(--border-thick);
+      background: #fff;
+      color: #000;
+      box-shadow: 6px 6px 0 0 #000;
+    }
+    .btn:hover { 
+      transform: translate(-4px, -4px); 
+      box-shadow: 10px 10px 0 0 #000; 
+    }
+    .btn-primary {
+      background: #000;
+      color: #fff;
+      box-shadow: 6px 6px 0 0 #ccc;
+    }
+    .btn-primary:hover { 
+      box-shadow: 10px 10px 0 0 #ccc; 
+    }
+    .btn-outline {
+      background: #fff;
+    }
+
+    .scroll-indicator {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 0.8rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator .line { width:1px; height:30px; background: linear-gradient(to bottom, var(--accent-1), transparent); }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 100px 40px; position: relative; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-label {
+      font-size: 0.85rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px;
+      color: #000; display: inline-block;
+      border: 2px solid #000; padding: 4px 12px;
+      background: #facc15; margin-bottom: 16px;
+      box-shadow: 4px 4px 0 0 #000;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 16px;
+    }
+    .section-desc { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+
+    /* ===== ABOUT ===== */
+    .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-image-wrapper { position: relative; }
+    .about-image-card { width: 100%; aspect-ratio: 3/4; background: #fff; border: var(--border-thick); box-shadow: var(--shadow-glow); overflow: hidden; position: relative; }
+    .about-image-card img { width:100%; height:100%; object-fit:cover; }
+    .about-image-card .overlay { position: absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%); }
+    .about-float-card {
+      position: absolute; bottom: -20px; right: -20px;
+      background: #fff; border: var(--border-thick);
+      box-shadow: 8px 8px 0 0 #000; padding: 20px 24px;
+      display: flex; align-items: center; gap: 12px;
+      transition: transform 0.2s ease;
+    }
+    .about-float-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 0 #000; }
+    .about-float-card .icon { width:48px; height:48px; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .about-float-card .info h4 { font-size:0.9rem; font-weight:600; }
+    .about-float-card .info p { font-size:0.8rem; color:var(--text-secondary); }
+    .about-text h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+    .about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    .stat-item { text-align: center; padding: 20px; background: #fff; border: var(--border-thick); box-shadow: 6px 6px 0 0 #000; transition: transform 0.2s ease; }
+    .stat-item:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 0 #000; }
+    .stat-item .number { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #000; }
+    .stat-item .label { font-size:0.8rem; color:var(--text-muted); margin-top:4px; }
+
+    /* ===== LINKTREE ===== */
+    .linktree-section { background: #fff; border-top: 4px solid #000; border-bottom: 4px solid #000; padding-bottom: 100px; }
+    .linktree-container { max-width: 680px; margin: 0 auto; background: #fff; border: 4px solid #000; padding: 40px; box-shadow: 12px 12px 0 0 #000; }
+    .linktree-header { text-align: center; margin-bottom: 32px; }
+    .linktree-header h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 800; }
+    .linktree-header p { color: var(--text-secondary); }
+    .linktree-links { display: flex; flex-direction: column; gap: 16px; }
+    .lt-link { display: flex; align-items: center; padding: 16px 24px; border: 4px solid #000; background: #f8f9fa; color: #000; text-decoration: none; font-weight: 700; box-shadow: 4px 4px 0 0 #000; transition: all 0.2s; }
+    .lt-link:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 0 #000; }
+    .lt-icon { font-size: 1.5rem; margin-right: 16px; }
+    .lt-text { flex: 1; }
+    .lt-arrow { font-size: 1.2rem; font-weight: 900; }
+    .lt-socials { display: flex; justify-content: center; gap: 16px; margin-top: 32px; }
+    .lt-social { font-size: 1.8rem; text-decoration: none; transition: transform 0.2s; color: #000; }
+    .lt-social:hover { transform: scale(1.1); }
+
+    /* ===== SKILLS ===== */
+    .skills-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .skill-card { padding: 32px; background: #fff; border: var(--border-thick); transition: all 0.2s ease; position: relative; overflow: hidden; box-shadow: 6px 6px 0 0 #000; }
+    .skill-card::before { content: ''; position: absolute; top:0; left:0; right:0; height:8px; background: #000; transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-card:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 0 #000; }
+    .skill-icon { width:56px; height:56px; background: #f0f0f0; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; box-shadow: 4px 4px 0 0 #000; }
+    .skill-card h3 { font-size:1.1rem; font-weight:600; margin-bottom:8px; }
+    .skill-card p { font-size:0.9rem; color:var(--text-secondary); }
+
+    /* ===== PROJECTS ===== */
+    .projects-container { max-width:1100px; margin:0 auto; }
+    .project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px; background: #fff; border: var(--border-thick); margin-bottom: 32px; transition: all 0.2s ease; position: relative; box-shadow: 10px 10px 0 0 #000; }
+    .project-card:hover { transform: translate(-4px,-4px); box-shadow: 14px 14px 0 0 #000; }
+    .project-card:nth-child(even) .project-preview { order:-1; }
+    .project-number { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; color: #000; -webkit-text-stroke: 2px #000; text-shadow: 4px 4px 0 #ccc; line-height: 1; margin-bottom: 16px; }
+    .project-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .project-info p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+    .project-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+    .project-tag { padding: 6px 14px; background: #f0f0f0; border: 2px solid #000; font-size: 0.8rem; font-weight: 700; color: #000; text-transform: uppercase; box-shadow: 2px 2px 0 0 #000; }
+    .project-preview { width:100%; aspect-ratio:16/10; background: repeating-linear-gradient(45deg, #000, #000 10px, #fff 10px, #fff 20px); border: var(--border-thick); position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 0 #000; }
+
+    /* ===== MEMORIES ===== */
+    .memories-title-bar { border-bottom: 4px solid #000; border-top: 4px solid #000; padding: 20px 40px; background: #facc15; margin-bottom: 40px; text-align: center; }
+    .memories-title-bar h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; letter-spacing: 2px; }
+    .memories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .memory-card { border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0 0 #000; transition: transform 0.2s; cursor: pointer; }
+    .memory-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 0 #000; }
+    .memory-img-wrapper, .memory-placeholder { width: 100%; aspect-ratio: 1; border-bottom: 4px solid #000; position: relative; background: #e5e5e5; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+    .memory-img { width: 100%; height: 100%; object-fit: cover; }
+    .memory-date-tag { position: absolute; top: 12px; right: 12px; background: #fff; border: 2px solid #000; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; box-shadow: 2px 2px 0 0 #000; }
+    .memory-body { padding: 20px; }
+    .memory-body h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+    .memory-body p { font-size: 0.9rem; color: #495057; }
+    .add-memory-btn { border: 4px dashed #000; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 250px; font-weight: 700; cursor: pointer; transition: background 0.2s; background: #fff; }
+    .add-memory-btn:hover { background: #f0f0f0; }
+    .add-memory-btn .plus { font-size: 3rem; margin-bottom: 8px; }
+
+    /* ===== SUMMARY ===== */
+    .summary-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .summary-card { padding: 40px; background: #fff; border: var(--border-thick); box-shadow: 8px 8px 0 0 #000; transition: all 0.2s ease; }
+    .summary-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 0 #000; }
+    .summary-card .card-icon { width:64px; height:64px; border: 4px solid #000; background: #f0f0f0; display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin-bottom:24px; box-shadow: 4px 4px 0 0 #000; }
+    .summary-card h3 { font-size:1.2rem; font-weight:600; margin-bottom:12px; }
+    .summary-card p { color:var(--text-secondary); font-size:0.95rem; }
+    .summary-card ul { list-style:none; margin-top:16px; }
+    .summary-card ul li { padding: 8px 0; color: var(--text-secondary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-glass); }
+    .summary-card ul li:last-child { border:none; }
+    .summary-card ul li::before { content: '✦'; color: var(--accent-1); font-size: 0.7rem; }
+
+    /* ===== FOOTER ===== */
+    .footer { padding: 60px 40px 30px; border-top: 4px solid #000; text-align: center; background: #fff; }
+    .footer-links { display:flex; justify-content:center; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+    .footer-links a { color:var(--text-secondary); text-decoration:none; font-size:0.9rem; transition: color 0.3s; font-weight: 600; }
+    .footer-links a:hover { color:var(--text-primary); text-decoration: underline; }
+    .footer-copy { color:var(--text-muted); font-size:0.85rem; font-weight: 500; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100000; display: none; align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: opacity 0.3s; }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img { max-width: 90%; max-height: 80vh; border: 4px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+    .lightbox-caption { color: #fff; margin-top: 16px; font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 600;}
+    .lightbox-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; }
+
+    /* ===== ADMIN PANEL ===== */
+    .admin-fab { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; background: #000; color: #fff; border: 4px solid #fff; border-radius: 50%; font-size: 1.8rem; cursor: pointer; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.3s; display:flex; align-items:center; justify-content:center; }
+    .admin-fab:hover { transform: scale(1.1); }
+    .admin-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9998; display: none; backdrop-filter: blur(4px); }
+    .admin-panel { position: fixed; top: 0; right: -400px; width: 400px; max-width: 100%; height: 100vh; background: #fff; border-left: 4px solid #000; z-index: 9999; transition: right 0.3s ease; overflow-y: auto; padding: 24px; box-shadow: -8px 0 0 0 rgba(0,0,0,0.1); }
+    .admin-panel.open { right: 0; }
+    .admin-panel h2 { font-family: 'Montserrat', sans-serif; border-bottom: 4px solid #000; padding-bottom: 16px; margin-bottom: 24px; }
+    .admin-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .admin-tab { padding: 8px 12px; border: 2px solid #000; background: #fff; cursor: pointer; font-weight: 700; font-size: 0.85rem; transition: all 0.2s; }
+    .admin-tab.active, .admin-tab:hover { background: #000; color: #fff; }
+    .admin-tab-content { display: none; }
+    .admin-tab-content.active { display: block; }
+    .admin-field { margin-bottom: 16px; }
+    .admin-field label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
+    .admin-field input, .admin-field textarea { width: 100%; padding: 12px; border: 2px solid #000; font-family: inherit; font-size: 0.95rem; background: #f8f9fa; }
+    .admin-field textarea { resize: vertical; min-height: 80px; }
+    .admin-btn { width: 100%; padding: 12px; background: #000; color: #fff; border: 2px solid #000; font-weight: 700; cursor: pointer; transition: all 0.2s; font-size: 1rem; box-shadow: 4px 4px 0 0 #ccc; }
+    .admin-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 #ccc; }
+    .admin-btn.danger { background: #ef4444; border-color: #ef4444; color:#fff; box-shadow: 4px 4px 0 0 #991b1b; }
+    .file-upload-area { border: 2px dashed #000; padding: 32px 16px; text-align: center; margin-bottom: 16px; cursor: pointer; background: #f8f9fa; font-weight: 700; transition: background 0.2s; }
+    .file-upload-area:hover { background: #e5e5e5; }
+    .upload-icon { font-size: 2rem; margin-bottom: 8px; }
+    .admin-item-list { list-style: none; margin-top: 24px; }
+    .admin-item { display: flex; align-items: center; justify-content: space-between; border: 2px solid #000; padding: 12px; margin-bottom: 12px; background: #fff; box-shadow: 2px 2px 0 0 #000; }
+    .item-info h5 { font-size: 0.95rem; margin-bottom: 4px; }
+    .item-info small { color: #666; font-size: 0.8rem; word-break: break-all; }
+    .item-delete { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #ef4444; }
+    .admin-memory-entry { border: 2px solid #000; padding: 16px; margin-bottom: 16px; background: #f0f0f0; position: relative; }
+    .entry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #000; }
+    .entry-delete { background: #ef4444; color: #fff; border: 2px solid #000; border-radius: 4px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+    /* ===== ANIMATIONS & RESPONSIVE ===== */
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; }
+      .nav-links { display:none; }
+      .mobile-menu-btn { display:block; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-title { font-size: 2.2rem; }
+      .section { padding: 60px 20px; }
+      .about-grid { grid-template-columns:1fr; gap:32px; }
+      .about-stats { grid-template-columns: repeat(3,1fr); }
+      .project-card { grid-template-columns:1fr; padding:24px; gap:24px; }
+      .project-card:nth-child(even) .project-preview { order:0; }
+      .linktree-container { padding: 24px; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"><style>undefined</style></head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-logo">Portfolio.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="">Trang chủ</a></li>
+      <li><a href="#about" class="">Giới thiệu</a></li>
+      <li><a href="#linktree" class="">Liên kết</a></li>
+      <li><a href="#projects" class="">Dự án</a></li>
+      <li id="navMemoriesLink"><a href="#memories" class="">Kỉ niệm</a></li>
+      <li><a href="#summary" class="active">Tổng kết</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-avatar" id="heroAvatar" title="Nhấn ⚙ để đổi ảnh đại diện"><div class="avatar-placeholder" style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;">🧑‍🎓</div></div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Portfolio Tin Học Ứng Dụng 2026
+      </div>
+      <h1 class="hero-title">
+        <span id="heroTitle">Chào mừng tới tới portfolio demo</span><br>
+        <span class="gradient-text" id="heroHighlight">Nguyễn Văn A</span>
+      </h1>
+      <p class="hero-subtitle" id="heroDesc" style="opacity: 1;">Sinh viên ngành Công nghệ thông tin. Đây là Portfolio tổng hợp các bài tập và dự án nghiên cứu 
+        trong quá trình học tập môn nhập môn công nghệ số và AI.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span>📂</span> Xem Dự Án
+        </a>
+        <a href="#about" class="btn btn-outline">
+          <span>👋</span> Về Tôi
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="line"></div>
+      Cuộn xuống
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="section-header reveal visible">
+      <div class="section-label">Giới thiệu</div>
+      <h2 class="section-title">Đôi nét về tôi</h2>
+      <p class="section-desc">Tìm hiểu thêm về sở thích, kinh nghiệm và mục tiêu học tập của tôi</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal visible">
+        <div class="about-image-card" id="aboutImageCard"><div class="memory-placeholder" style="width:100%;height:100%;font-size:1.5rem;font-weight:700;color:#000;background:#e5e5e5;display:flex;align-items:center;justify-content:center;">Chưa có ảnh</div></div>
+        <div class="about-float-card">
+          <div class="icon">🏆</div>
+          <div class="info">
+            <h4 id="aboutInfoTitle">Đang học tập</h4>
+            <p id="aboutInfoText">Năm học 2025-2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2 visible">
+        <h3 id="aboutTitle">Sinh viên đam mê công nghệ &amp; kỹ năng số</h3>
+        <p id="aboutP1">
+          Tôi là sinh viên ngành Công nghệ thông tin, luôn tìm tòi và khám phá các ứng dụng 
+          công nghệ mới trong học tập và cuộc sống. Tôi có niềm đam mê đặc biệt với lĩnh vực 
+          trí tuệ nhân tạo, phát triển phần mềm và thiết kế giao diện.
+        </p>
+        <p id="aboutP2">
+          Portfolio này là tập hợp các bài tập nghiên cứu và dự án mà tôi đã hoàn thành 
+          trong quá trình học môn Tin học ứng dụng. Mỗi bài tập thể hiện một khía cạnh 
+          khác nhau của kỹ năng số mà tôi đã rèn luyện.
+        </p>
+        <p>
+          <strong id="aboutLabel1">Sở thích:</strong> <span id="aboutText1">Lập trình, đọc sách công nghệ, chỉnh sửa video, thiết kế đồ họa.</span><br>
+          <strong id="aboutLabel2">Điểm mạnh:</strong> <span id="aboutText2">Tư duy logic, khả năng tự học, làm việc nhóm hiệu quả.</span>
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="number">6</div>
+            <div class="label">Bài tập</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">3</div>
+            <div class="label">Trang</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">∞</div>
+            <div class="label">Đam mê</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linktree / Beacon Section -->
+  <section class="linktree-section" id="linktree">
+    <div class="section-header reveal visible">
+      <div class="section-label">Liên kết</div>
+      <h2 class="section-title">Quick Links</h2>
+      <p class="section-desc">Tất cả liên kết quan trọng tại một nơi</p>
+    </div>
+    <div class="linktree-container reveal visible">
+      <div class="linktree-header">
+        <div id="ltAvatar" style="width: 100px; height: 100px; border-radius: 0; overflow: hidden; margin: 0 auto 16px; border: 4px solid #000; box-shadow: 4px 4px 0 0 #000;"><div style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🧑‍🎓</div></div>
+        <h3 id="ltName">Nguyễn Văn A</h3>
+        <p>Sinh viên QTDTTM&amp;BV · Portfolio Tin Học Ứng Dụng</p>
+      </div>
+      <div class="linktree-links" id="linktreeLinks">
+        <a href="#projects" class="lt-link" data-lt-project="1" target="">
+          <div class="lt-icon">📄</div>
+          <span class="lt-text">Bài 1 · Máy tính và thiết bị người dùng</span>
+          <span class="lt-arrow">→</span>
+        </a>
+        <a href="#projects" class="lt-link" data-lt-project="2" target="">
+          <div class="lt-icon">🔍</div>
+          <span class="lt-text">Bài 2 · Tìm kiếm và đánh giá thông tin</span>
+          <span class="lt-arrow">→</span>
+        </a>
+        <a href="#projects" class="lt-link" data-lt-project="3" target="">
+          <div class="lt-icon">📝</div>
+          <span class="lt-text">Bài 3 · Viết Prompt hiệu quả</span>
+          <span class="lt-arrow">→</span>
+        </a>
+        <a href="#projects" class="lt-link" data-lt-project="4" target="">
+          <div class="lt-icon">🤝</div>
+          <span class="lt-text">Bài 4 · Hợp tác trực tuyến</span>
+          <span class="lt-arrow">→</span>
+        </a>
+        <a href="#projects" class="lt-link" data-lt-project="5" target="">
+          <div class="lt-icon">🎨</div>
+          <span class="lt-text">Bài 5 · Sáng tạo nội dung AI</span>
+          <span class="lt-arrow">→</span>
+        </a>
+        <a href="#projects" class="lt-link" data-lt-project="6" target="">
+          <div class="lt-icon">🛡️</div>
+          <span class="lt-text">Bài 6 · AI có trách nhiệm</span>
+          <span class="lt-arrow">→</span>
+        </a>
+      </div>
+      <div class="lt-socials">
+        <a href="#" class="lt-social" title="GitHub">🐙</a>
+        <a href="#" class="lt-social" title="Facebook">📘</a>
+        <a href="#" class="lt-social" title="Email">📧</a>
+        <a href="#" class="lt-social" title="LinkedIn">💼</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills" style="background:var(--bg-secondary);">
+    <div class="section-header reveal visible">
+      <div class="section-label">Kỹ năng</div>
+      <h2 class="section-title">Năng lực số đã phát triển</h2>
+      <p class="section-desc">Các kỹ năng cốt lõi tôi đã rèn luyện qua từng bài tập</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(108,92,231,0.2),rgba(108,92,231,0.05));">💻</div>
+        <h3>Thiết bị &amp; Hệ thống</h3>
+        <p>Hiểu biết về máy tính, thiết bị người dùng và cách tối ưu hóa hệ thống phần cứng, phần mềm.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-1 visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05));">🔍</div>
+        <h3>Tìm kiếm &amp; Đánh giá</h3>
+        <p>Kỹ năng tìm kiếm thông tin hiệu quả, đánh giá độ tin cậy và trích dẫn nguồn tài liệu chính xác.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2 visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(244,63,94,0.2),rgba(244,63,94,0.05));">📝</div>
+        <h3>Viết Prompt AI</h3>
+        <p>Thành thạo kỹ thuật Prompt Engineering để tương tác hiệu quả với các công cụ AI như ChatGPT, Gemini.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-1 visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(251,146,60,0.2),rgba(251,146,60,0.05));">🤝</div>
+        <h3>Hợp tác trực tuyến</h3>
+        <p>Sử dụng các công cụ cộng tác như Google Docs, Trello, Notion để làm việc nhóm hiệu quả.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2 visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(34,197,94,0.05));">🎨</div>
+        <h3>Sáng tạo nội dung số</h3>
+        <p>Tạo nội dung đa phương tiện: hình ảnh, video, infographic bằng các công cụ AI và phần mềm chuyên dụng.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-3 visible">
+        <div class="skill-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.05));">🛡️</div>
+        <h3>An toàn &amp; Trách nhiệm</h3>
+        <p>Nhận thức về an toàn thông tin, bảo mật dữ liệu và sử dụng AI có trách nhiệm, đạo đức.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="section-header reveal visible">
+      <div class="section-label">Dự án</div>
+      <h2 class="section-title">Các bài tập đã hoàn thành</h2>
+      <p class="section-desc">6 bài tập thể hiện quá trình học tập và nghiên cứu của tôi</p>
+    </div>
+    <div class="projects-container">
+
+      <!-- Project 1 -->
+      <div class="project-card reveal visible" data-project="1" style="">
+        <div class="project-info">
+          <div class="project-number">01</div>
+          <h3>Máy tính và các thiết bị người dùng</h3>
+          <p>
+            Thao tác cơ bản với tệp tin và thư mục. Trình bày cấu trúc thư mục tối ưu, 
+            cách tạo và quản lý dữ liệu. Thiết lập hệ thống sắp xếp file khoa học 
+            và hiệu quả cho công việc học tập.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">📁 Quản lý File</span>
+            <span class="project-tag">⚙️ Thiết bị</span>
+            <span class="project-tag">🖥️ Hệ thống</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="1" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;"></div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal visible" data-project="2" style="">
+        <div class="project-info">
+          <div class="project-number">02</div>
+          <h3>Tìm kiếm và đánh giá thông tin tin học thuật</h3>
+          <p>
+            Trình bày kết quả tìm kiếm học thuật, đánh giá tài liệu theo tiêu chí 
+            độ tin cậy và ứng dụng. Sử dụng Google Scholar và các cơ sở dữ liệu 
+            học thuật để tìm nguồn tài liệu đáng tin cậy.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">🔎 Tìm kiếm</span>
+            <span class="project-tag">📊 Đánh giá</span>
+            <span class="project-tag">📚 Học thuật</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="2" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;">🔍</div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal visible" data-project="3" style="">
+        <div class="project-info">
+          <div class="project-number">03</div>
+          <h3>Viết Prompt hiệu quả cho các tác vụ học tập</h3>
+          <p>
+            Thực hành so sánh kết quả giữa Prompt cơ bản và Prompt cải tiến. 
+            Trình bày kỹ thuật viết Prompt tối ưu để khai thác tối đa tiềm năng 
+            của các công cụ AI trong học tập và nghiên cứu.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">🤖 AI</span>
+            <span class="project-tag">✍️ Prompt</span>
+            <span class="project-tag">📈 So sánh</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="3" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;"></div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal visible" data-project="4" style="">
+        <div class="project-info">
+          <div class="project-number">04</div>
+          <h3>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
+          <p>
+            Trình bày minh chứng về việc sử dụng công cụ quản lý dự án nhóm 
+            và cách thức phối hợp trực tuyến. Chia sẻ kinh nghiệm làm việc nhóm 
+            hiệu quả trong môi trường số.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">👥 Nhóm</span>
+            <span class="project-tag">🔗 Cộng tác</span>
+            <span class="project-tag">📋 Quản lý</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="4" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;"></div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card reveal visible" data-project="5">
+        <div class="project-info">
+          <div class="project-number">05</div>
+          <h3>Sử dụng AI tạo sản phẩm sáng tạo nội dung</h3>
+          <p>
+            Trưng bày sản phẩm nội dung số hoàn thiện (hình ảnh, video hoặc bài viết) 
+            được hỗ trợ bởi AI. Thể hiện quy trình sáng tạo từ ý tưởng đến 
+            sản phẩm hoàn chỉnh.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">🎨 Sáng tạo</span>
+            <span class="project-tag">🤖 AI</span>
+            <span class="project-tag">🎬 Đa phương tiện</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="5" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;"></div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card reveal visible" data-project="6" style="">
+        <div class="project-info">
+          <div class="project-number">06</div>
+          <h3>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
+          <p>
+            Trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm. 
+            Phân tích các vấn đề đạo đức, bản quyền và tính minh bạch 
+            khi ứng dụng AI trong môi trường học thuật.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">⚖️ Đạo đức</span>
+            <span class="project-tag">🛡️ Trách nhiệm</span>
+            <span class="project-tag">📜 Nguyên tắc</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="6" target="">Chưa có link · Nhấn ⚙ để thêm</a>
+        </div>
+        <div class="project-preview">
+          <div style="text-align:center;padding:40px;">
+            <div style="font-size:4rem;margin-bottom:16px;"></div>
+            <div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Kỉ Niệm / Archive Section -->
+  <section class="section" id="memories" style="background:var(--bg-secondary);">
+    <div class="memories-title-bar reveal visible">
+      <h2>KỈ NIỆM</h2>
+    </div>
+    <div class="memories-grid" id="memoriesGrid">
+      <!-- Rendered by JS -->
+      <div class="memory-card reveal visible"><div class="memory-placeholder" style="position:relative;">📸<div class="memory-date-tag">Tháng 9, 2023</div></div><div class="memory-body"><h4>Ngày đầu nhập học</h4><p>Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.</p></div></div><div class="memory-card reveal visible"><div class="memory-placeholder" style="position:relative;">📸<div class="memory-date-tag">Tháng 12, 2023</div></div><div class="memory-body"><h4>Thức đêm làm dự án</h4><p>Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.</p></div></div><div class="memory-card reveal visible"><div class="memory-placeholder" style="position:relative;">📸<div class="memory-date-tag"></div></div><div class="memory-body"><h4>Kỉ niệm mới</h4><p></p></div></div><div class="add-memory-btn" id="addMemoryBtn">
+        <div class="plus">+</div>
+        <span>Thêm kỉ niệm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Section -->
+  <section class="section" id="summary" style="background:var(--bg-secondary);">
+    <div class="section-header reveal visible">
+      <div class="section-label">Tổng kết</div>
+      <h2 class="section-title">Những gì tôi đã học được</h2>
+      <p class="section-desc">Chia sẻ kinh nghiệm, bài học và kế hoạch phát triển trong tương lai</p>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card reveal visible">
+        <div class="card-icon">💡</div>
+        <h3 id="sumTitle1">Kinh nghiệm đã tích lũy</h3>
+        <p id="sumDesc1">Qua quá trình hoàn thành portfolio, tôi đã có cơ hội nhìn lại toàn bộ hành trình học tập của mình.</p>
+        <ul id="sumList1">
+          <li>Kỹ năng quản lý thời gian và dự án</li>
+          <li>Tư duy phản biện với thông tin số</li>
+          <li>Sử dụng AI hỗ trợ sáng tạo nội dung</li>
+          <li>Kỹ năng thuyết trình và trình bày</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-delay-1 visible">
+        <div class="card-icon">🎯</div>
+        <h3 id="sumTitle2">Kỹ năng số đã phát triển</h3>
+        <p id="sumDesc2">Những kỹ năng cốt lõi mà tôi đã rèn luyện và phát triển qua từng bài tập.</p>
+        <ul id="sumList2">
+          <li>Tìm kiếm và đánh giá thông tin</li>
+          <li>Sáng tạo nội dung đa phương tiện</li>
+          <li>Hợp tác trực tuyến hiệu quả</li>
+          <li>Sử dụng AI có trách nhiệm</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-delay-2 visible">
+        <div class="card-icon">🚀</div>
+        <h3 id="sumTitle3">Hướng phát triển tương lai</h3>
+        <p id="sumDesc3">Những mục tiêu và hướng đi tôi muốn theo đuổi trong tương lai gần.</p>
+        <ul id="sumList3">
+          <li>Nâng cao kỹ năng lập trình</li>
+          <li>Tìm hiểu sâu hơn về AI/ML</li>
+          <li>Phát triển dự án cá nhân thực tế</li>
+          <li>Tham gia cộng đồng công nghệ</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="reveal visible" style="max-width:700px;margin:64px auto 0;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:16px;opacity:0.3;">❝</div>
+      <blockquote id="aboutMotto" style="font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:500;font-style:italic;color:#1a1a1a;line-height:1.8;">
+        Học tập không chỉ là tiếp nhận kiến thức, mà còn là hành trình khám phá bản thân 
+        và xây dựng nền tảng cho tương lai số.
+      </blockquote>
+      <div style="margin-top:16px;color:var(--text-muted);font-size:0.9rem;font-weight:bold;">— Châm ngôn cá nhân</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#hero">Trang chủ</a>
+      <a href="#about">Giới thiệu</a>
+      <a href="#skills">Kỹ năng</a>
+      <a href="#projects">Dự án</a>
+      <a href="#summary">Tổng kết</a>
+    </div>
+    <p class="footer-copy">© 2026 Portfolio Tin Học Ứng Dụng. Thiết kế với 💜 bởi <span id="footerName">Nguyễn Văn A</span></p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img src="" alt="" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Admin FAB + Panel -->
+  <button class="admin-fab active" id="adminFab" title="Tùy chỉnh Portfolio">⚙</button>
+  <div class="admin-overlay" id="adminOverlay" style="display: block;"></div>
+  <div class="admin-panel open" id="adminPanel">
+    <h2>⚙ Tùy chỉnh</h2>
+    <div class="admin-tabs">
+      <button class="admin-tab" data-tab="avatar">Avatar</button>
+      <button class="admin-tab" data-tab="hero">Trang Chủ</button>
+      <button class="admin-tab" data-tab="about">Giới Thiệu</button>
+      <button class="admin-tab" data-tab="projects">Bài tập</button>
+      <button class="admin-tab" data-tab="links">Liên kết</button>
+      <button class="admin-tab" data-tab="memories">Kỉ niệm</button>
+      <button class="admin-tab" data-tab="summary">Tổng kết</button>
+      <button class="admin-tab active" data-tab="export" style="background:#facc15;color:#000;">⬇️ Xuất File</button>
+    </div>
+
+    <!-- Avatar Tab -->
+    <div class="admin-tab-content" id="tab-avatar">
+      <div class="file-upload-area" id="avatarUpload">
+        <div class="upload-icon">📷</div>
+        <div>Nhấn để chọn ảnh đại diện</div>
+        <input type="file" accept="image/*" id="avatarInput" style="display:none">
+      </div>
+      <button class="admin-btn danger" id="resetAvatar">Xóa ảnh đại diện</button>
+    </div>
+
+    <!-- Projects Tab -->
+    <div class="admin-tab-content" id="tab-projects">
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:20px;">Gắn link bài tập vào từng mục. Link sẽ cập nhật ở cả Project cards và Linktree.</p>
+      <div class="admin-field">
+        <label>📄 Bài 1 · Máy tính và thiết bị</label>
+        <input type="url" id="projectUrl1" placeholder="https://... (link bài tập 1)">
+      </div>
+      <div class="admin-field">
+        <label>🔍 Bài 2 · Tìm kiếm và đánh giá</label>
+        <input type="url" id="projectUrl2" placeholder="https://... (link bài tập 2)">
+      </div>
+      <div class="admin-field">
+        <label>📝 Bài 3 · Viết Prompt hiệu quả</label>
+        <input type="url" id="projectUrl3" placeholder="https://... (link bài tập 3)">
+      </div>
+      <div class="admin-field">
+        <label>🤝 Bài 4 · Hợp tác trực tuyến</label>
+        <input type="url" id="projectUrl4" placeholder="https://... (link bài tập 4)">
+      </div>
+      <div class="admin-field">
+        <label>🎨 Bài 5 · Sáng tạo nội dung AI</label>
+        <input type="url" id="projectUrl5" placeholder="https://... (link bài tập 5)">
+      </div>
+      <div class="admin-field">
+        <label>🛡️ Bài 6 · AI có trách nhiệm</label>
+        <input type="url" id="projectUrl6" placeholder="https://... (link bài tập 6)">
+      </div>
+      <button class="admin-btn" id="saveProjectUrls">💾 Lưu tất cả link bài tập</button>
+      <div id="projectSaveMsg" style="text-align:center;color:#22c55e;font-size:0.85rem;margin-top:8px;font-weight:bold;display:none;">✅ Đã lưu thành công!</div>
+    </div>
+
+    <!-- Links Tab -->
+    <div class="admin-tab-content" id="tab-links">
+      <div class="admin-field">
+        <label>Icon (emoji)</label>
+        <input type="text" id="linkIcon" placeholder="📄" maxlength="4">
+      </div>
+      <div class="admin-field">
+        <label>Tiêu đề</label>
+        <input type="text" id="linkTitle" placeholder="Tên liên kết...">
+      </div>
+      <div class="admin-field">
+        <label>URL</label>
+        <input type="url" id="linkUrl" placeholder="https://...">
+      </div>
+      <button class="admin-btn" id="addLinkBtn">+ Thêm liên kết</button>
+      <ul class="admin-item-list" id="linksList"></ul>
+    </div>
+
+    <!-- Memories Tab -->
+    <div class="admin-tab-content" id="tab-memories">
+      <div class="admin-field" style="background:#f8f9fa; padding:12px; border:2px solid #000; margin-bottom:16px;">
+        <label style="margin:0; display:flex; align-items:center; gap:8px; cursor:pointer;">
+          <input type="checkbox" id="hideMemoriesToggle" style="width:18px; height:18px; cursor:pointer;">
+          Ẩn hoàn toàn phần "Kỉ niệm"
+        </label>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <span style="font-size:0.85rem;color:var(--text-secondary);font-weight:bold;">📸 Danh sách kỉ niệm</span>
+        <button class="admin-btn" id="addNewMemoryBtn" style="width:auto;padding:8px 16px;margin:0;font-size:0.8rem;">+ Thêm ảnh</button>
+      </div>
+      <div id="memoriesAdminList">
+        <div class="admin-memory-entry" data-mem-idx="0">
+          <div class="entry-header">
+            <h5>#1 Ngày đầu nhập học</h5>
+            <button class="entry-delete" data-del-mem="default-1">🗑</button>
+          </div>
+          <div class="admin-field">
+            <label>Tiêu đề</label>
+            <input type="text" data-mem-field="title" data-mem-id="default-1" value="Ngày đầu nhập học">
+          </div>
+          <div class="admin-field">
+            <label>Ngày tháng</label>
+            <input type="text" data-mem-field="date" data-mem-id="default-1" value="Tháng 9, 2023" placeholder="VD: Tháng 9, 2023">
+          </div>
+          <div class="admin-field">
+            <label>Mô tả</label>
+            <textarea data-mem-field="desc" data-mem-id="default-1">Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.</textarea>
+          </div>
+          <div class="admin-field">
+            <label>Ảnh kỉ niệm (Tải file)</label>
+            <input type="file" accept="image/*" class="mem-image-upload" data-mem-id="default-1" style="font-size:0.8rem; background: #fff;">
+            
+          </div>
+        </div>
+      
+        <div class="admin-memory-entry" data-mem-idx="1">
+          <div class="entry-header">
+            <h5>#2 Thức đêm làm dự án</h5>
+            <button class="entry-delete" data-del-mem="default-2">🗑</button>
+          </div>
+          <div class="admin-field">
+            <label>Tiêu đề</label>
+            <input type="text" data-mem-field="title" data-mem-id="default-2" value="Thức đêm làm dự án">
+          </div>
+          <div class="admin-field">
+            <label>Ngày tháng</label>
+            <input type="text" data-mem-field="date" data-mem-id="default-2" value="Tháng 12, 2023" placeholder="VD: Tháng 9, 2023">
+          </div>
+          <div class="admin-field">
+            <label>Mô tả</label>
+            <textarea data-mem-field="desc" data-mem-id="default-2">Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.</textarea>
+          </div>
+          <div class="admin-field">
+            <label>Ảnh kỉ niệm (Tải file)</label>
+            <input type="file" accept="image/*" class="mem-image-upload" data-mem-id="default-2" style="font-size:0.8rem; background: #fff;">
+            
+          </div>
+        </div>
+      
+        <div class="admin-memory-entry" data-mem-idx="2">
+          <div class="entry-header">
+            <h5>#3 Kỉ niệm mới</h5>
+            <button class="entry-delete" data-del-mem="1777601986725">🗑</button>
+          </div>
+          <div class="admin-field">
+            <label>Tiêu đề</label>
+            <input type="text" data-mem-field="title" data-mem-id="1777601986725" value="Kỉ niệm mới">
+          </div>
+          <div class="admin-field">
+            <label>Ngày tháng</label>
+            <input type="text" data-mem-field="date" data-mem-id="1777601986725" value="" placeholder="VD: Tháng 9, 2023">
+          </div>
+          <div class="admin-field">
+            <label>Mô tả</label>
+            <textarea data-mem-field="desc" data-mem-id="1777601986725"></textarea>
+          </div>
+          <div class="admin-field">
+            <label>Ảnh kỉ niệm (Tải file)</label>
+            <input type="file" accept="image/*" class="mem-image-upload" data-mem-id="1777601986725" style="font-size:0.8rem; background: #fff;">
+            
+          </div>
+        </div>
+      </div>
+      <button class="admin-btn" id="saveMemoriesBtn" style="margin-top:16px;">💾 Lưu tất cả</button>
+      <div id="memorySaveMsg" style="text-align:center;color:#22c55e;font-size:0.85rem;margin-top:8px;font-weight:bold;display:none;">✅ Đã lưu!</div>
+    </div>
+
+    <!-- Hero Tab -->
+    <div class="admin-tab-content" id="tab-hero">
+      <div class="admin-field">
+        <label>Tiêu đề chính</label>
+        <input type="text" id="adminHeroTitle" placeholder="Xin chào, tôi là...">
+      </div>
+      <div class="admin-field">
+        <label>Tên / Điểm nhấn</label>
+        <input type="text" id="adminHeroHighlight" placeholder="Nguyễn Văn A">
+      </div>
+      <div class="admin-field">
+        <label>Mô tả ngắn</label>
+        <textarea id="adminHeroDesc" placeholder="Sinh viên ngành..."></textarea>
+      </div>
+      <button class="admin-btn" id="saveHeroBtn">💾 Lưu Trang Chủ</button>
+      <div id="heroSaveMsg" style="text-align:center;color:#22c55e;font-size:0.85rem;margin-top:8px;font-weight:bold;display:none;">✅ Đã lưu!</div>
+    </div>
+
+    <!-- About Tab -->
+    <div class="admin-tab-content" id="tab-about">
+      <div class="file-upload-area" id="aboutUploadArea" style="padding:16px;">
+        <div class="upload-icon" style="font-size:1.5rem;margin-bottom:4px;">📷</div>
+        <div>Tải ảnh giới thiệu lên</div>
+        <input type="file" accept="image/*" id="aboutImageInput" style="display:none">
+      </div>
+      <div class="admin-field">
+        <label>Tiêu đề thẻ nổi (VD: Đang học tập)</label>
+        <input type="text" id="adminAboutInfoTitle" placeholder="Đang học tập">
+      </div>
+      <div class="admin-field">
+        <label>Nội dung thẻ nổi (VD: Năm học...)</label>
+        <input type="text" id="adminAboutInfoText" placeholder="Năm học 2025-2026">
+      </div>
+      <div class="admin-field">
+        <label>Tiêu đề phần giới thiệu</label>
+        <input type="text" id="adminAboutTitle" placeholder="Sinh viên đam mê...">
+      </div>
+      <div class="admin-field">
+        <label>Đoạn 1</label>
+        <textarea id="adminAboutP1" placeholder="Tôi là sinh viên..."></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Đoạn 2</label>
+        <textarea id="adminAboutP2" placeholder="Portfolio này là..."></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Nhãn 1 (VD: Sở thích:)</label>
+        <input type="text" id="adminAboutLabel1" placeholder="Sở thích:">
+      </div>
+      <div class="admin-field">
+        <label>Nội dung 1</label>
+        <textarea id="adminAboutText1" placeholder="Lập trình, đọc sách..."></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Nhãn 2 (VD: Điểm mạnh:)</label>
+        <input type="text" id="adminAboutLabel2" placeholder="Điểm mạnh:">
+      </div>
+      <div class="admin-field">
+        <label>Nội dung 2</label>
+        <textarea id="adminAboutText2" placeholder="Tư duy logic..."></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Châm ngôn (Motto cuối trang)</label>
+        <textarea id="adminAboutMotto" placeholder="Công nghệ không chỉ là..."></textarea>
+      </div>
+      <button class="admin-btn" id="saveAboutBtn">💾 Lưu Giới Thiệu</button>
+      <div id="aboutSaveMsg" style="text-align:center;color:#22c55e;font-size:0.85rem;margin-top:8px;font-weight:bold;display:none;">✅ Đã lưu!</div>
+    </div>
+
+    <!-- Summary Tab -->
+    <div class="admin-tab-content" id="tab-summary">
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Để tạo danh sách (bullet points), hãy viết mỗi mục trên 1 dòng mới.</p>
+      
+      <div class="admin-memory-entry">
+        <div class="admin-field"><label>Cột 1: Tiêu đề</label><input type="text" id="adminSumTitle1"></div>
+        <div class="admin-field"><label>Mô tả ngắn</label><input type="text" id="adminSumDesc1"></div>
+        <div class="admin-field"><label>Danh sách (mỗi dòng 1 mục)</label><textarea id="adminSumList1"></textarea></div>
+      </div>
+      
+      <div class="admin-memory-entry">
+        <div class="admin-field"><label>Cột 2: Tiêu đề</label><input type="text" id="adminSumTitle2"></div>
+        <div class="admin-field"><label>Mô tả ngắn</label><input type="text" id="adminSumDesc2"></div>
+        <div class="admin-field"><label>Danh sách (mỗi dòng 1 mục)</label><textarea id="adminSumList2"></textarea></div>
+      </div>
+      
+      <div class="admin-memory-entry">
+        <div class="admin-field"><label>Cột 3: Tiêu đề</label><input type="text" id="adminSumTitle3"></div>
+        <div class="admin-field"><label>Mô tả ngắn</label><input type="text" id="adminSumDesc3"></div>
+        <div class="admin-field"><label>Danh sách (mỗi dòng 1 mục)</label><textarea id="adminSumList3"></textarea></div>
+      </div>
+      
+      <button class="admin-btn" id="saveSummaryBtn">💾 Lưu Tổng Kết</button>
+      <div id="sumSaveMsg" style="text-align:center;color:#22c55e;font-size:0.85rem;margin-top:8px;font-weight:bold;display:none;">✅ Đã lưu!</div>
+    </div>
+
+    <!-- Export Tab -->
+    <div class="admin-tab-content active" id="tab-export">
+      <h3 style="margin-bottom:12px; font-family:'Montserrat',sans-serif;">Tải Website Về Máy</h3>
+      <p style="font-size:0.9rem; margin-bottom:20px; color:var(--text-secondary);">
+        Tính năng này sẽ nhúng tất cả hình ảnh, nội dung, màu sắc bạn đã cấu hình vào một tệp <code>portfolio.html</code> duy nhất. 
+        Bạn có thể mang tệp này upload lên <strong>Github Pages</strong>, <strong>Cloudflare Pages</strong> hoặc <strong>Vercel</strong> để có một trang web hoàn chỉnh ngay lập tức!
+      </p>
+      <button class="admin-btn" id="exportBtn" style="background:#facc15; color:#000; font-size:1.1rem; padding:16px;">🚀 Tải File HTML</button>
+    </div>
+
+  </div>
+
+  <script>
+    // ===== INJECTED STATE FOR EXPORT =====
+    const INJECTED_STATE = {"memories":[{"id":"default-1","title":"Ngày đầu nhập học","date":"Tháng 9, 2023","desc":"Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.","image":""},{"id":"default-2","title":"Thức đêm làm dự án","date":"Tháng 12, 2023","desc":"Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.","image":""},{"id":"default-3","title":"Khám phá AI lần đầu","date":"Tháng 3, 2024","desc":"Trải nghiệm đầu tiên với ChatGPT và Gemini — mở ra thế giới mới.","image":""}],"texts":{}}; // Do not touch this line manually. Export logic uses it.
+
+    // ===== State from localStorage =====
+    const STATE_KEY = 'portfolio_state';
+    function loadState() {
+      if (INJECTED_STATE) return INJECTED_STATE;
+      try { return JSON.parse(localStorage.getItem(STATE_KEY)) || {}; } catch { return {}; }
+    }
+    function saveState(s) {
+      if (INJECTED_STATE) return; // Read-only if exported
+      try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); }
+      catch (e) { console.error('localStorage save error:', e); alert('Lỗi: Dung lượng lưu trữ đã đầy. Hãy xóa bớt ảnh bằng cách tải ảnh nhẹ hơn.'); }
+    }
+
+    // Compress image to fit localStorage
+    function compressImage(dataUrl, maxWidth, quality) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let w = img.width, h = img.height;
+          if (w > maxWidth) { h = h * maxWidth / w; w = maxWidth; }
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.src = dataUrl;
+      });
+    }
+
+    let state = loadState();
+
+    // ===== Cursor Glow (Wrapped in condition to prevent errors) =====
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow) {
+      document.addEventListener('mousemove', e => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+      });
+    }
+
+    // ===== Navbar Scroll =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+    // ===== Active Nav Link =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    function updateActiveNav() {
+      const y = window.scrollY + 200;
+      sections.forEach(s => {
+        if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+          navLinks.forEach(l => {
+            l.classList.toggle('active', l.getAttribute('href') === '#' + s.id);
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav);
+
+    // ===== Scroll Reveal =====
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // ===== Mobile Menu =====
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinksEl = document.getElementById('navLinks');
+    let menuOpen = false;
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      Object.assign(navLinksEl.style, menuOpen ? {
+        display:'flex',flexDirection:'column',position:'absolute',top:'100%',
+        left:'0',right:'0',background:'rgba(255,255,255,0.98)',padding:'20px',
+        borderBottom:'4px solid #000',backdropFilter:'blur(20px)', zIndex:'999'
+      } : {
+        display:'',flexDirection:'',position:'',top:'',left:'',right:'',
+        background:'',padding:'',borderBottom:'',backdropFilter:'', zIndex:''
+      });
+      mobileMenuBtn.textContent = menuOpen ? '✕' : '☰';
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (innerWidth <= 768) { menuOpen = false; navLinksEl.style.display = ''; mobileMenuBtn.textContent = '☰'; }
+    }));
+
+    // ===== Counter Animation =====
+    function animateCounters() {
+      document.querySelectorAll('.stat-item .number').forEach(c => {
+        const n = parseInt(c.textContent); if (isNaN(n)) return;
+        let cur = 0; const inc = Math.ceil(n / 30);
+        const t = setInterval(() => { cur += inc; if (cur >= n) { c.textContent = n; clearInterval(t); } else c.textContent = cur; }, 40);
+      });
+    }
+    const statsEl = document.querySelector('.about-stats');
+    if (statsEl) {
+      const so = new IntersectionObserver(e => { if (e[0].isIntersecting) { animateCounters(); so.unobserve(statsEl); } }, { threshold: 0.5 });
+      so.observe(statsEl);
+    }
+
+    // ===== Parallax Orbs =====
+    window.addEventListener('scroll', () => {
+      const sy = window.scrollY;
+      document.querySelectorAll('.hero-orb').forEach((o,i) => { o.style.transform = `translateY(${sy*(i+1)*0.05}px)`; });
+    });
+
+    // ===== Typing Effect =====
+    const heroSub = document.querySelector('.hero-subtitle');
+    if (heroSub) {
+      const txt = heroSub.textContent.trim(); heroSub.textContent = ''; heroSub.style.opacity='1';
+      let i=0; function type(){ if(i<txt.length){ heroSub.textContent+=txt.charAt(i); i++; setTimeout(type,15); }}
+      setTimeout(type,800);
+    }
+
+    // ===== 3D Tilt =====
+    document.querySelectorAll('.project-card').forEach(c => {
+      c.addEventListener('mousemove', e => {
+        const r=c.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        c.style.transform=`perspective(1000px) rotateY(${x*3}deg) rotateX(${-y*3}deg)`;
+      });
+      c.addEventListener('mouseleave', () => c.style.transform='');
+    });
+
+    // ===== AVATAR MANAGEMENT =====
+    function renderAvatar() {
+      const heroAvatar = document.getElementById('heroAvatar');
+      const ltAvatar = document.getElementById('ltAvatar');
+      if (state.avatar) {
+        heroAvatar.innerHTML = `<img src="${state.avatar}" alt="Avatar">`;
+        if (ltAvatar) ltAvatar.innerHTML = `<img src="${state.avatar}" alt="Avatar" style="width:100%;height:100%;object-fit:cover;">`;
+      } else {
+        heroAvatar.innerHTML = '<div class="avatar-placeholder" style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;">🧑‍🎓</div>';
+        if (ltAvatar) ltAvatar.innerHTML = '<div style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🧑‍🎓</div>';
+      }
+    }
+
+    document.getElementById('avatarUpload').addEventListener('click', (e) => {
+      if (e.target.closest('#avatarInput')) return; 
+      document.getElementById('avatarInput').click();
+    });
+    document.getElementById('avatarInput').addEventListener('click', (e) => e.stopPropagation());
+    document.getElementById('avatarInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = async (ev) => {
+        try {
+          state.avatar = await compressImage(ev.target.result, 300, 0.7);
+          saveState(state);
+          renderAvatar();
+        } catch (err) { console.error('Avatar error:', err); alert('Lỗi khi tải ảnh.'); }
+      };
+      reader.readAsDataURL(file);
+    });
+    document.getElementById('resetAvatar').addEventListener('click', () => {
+      delete state.avatar; saveState(state); renderAvatar();
+    });
+
+    // ===== ABOUT IMAGE MANAGEMENT =====
+    function renderAboutImage() {
+      const aboutImageCard = document.getElementById('aboutImageCard');
+      if (state.aboutImage && aboutImageCard) {
+        aboutImageCard.innerHTML = `<img src="${state.aboutImage}" alt="About Me"><div class="overlay"></div>`;
+      } else if (aboutImageCard) {
+        aboutImageCard.innerHTML = '<div class="memory-placeholder" style="width:100%;height:100%;font-size:1.5rem;font-weight:700;color:#000;background:#e5e5e5;display:flex;align-items:center;justify-content:center;">Chưa có ảnh</div>';
+      }
+    }
+
+    const aboutUploadArea = document.getElementById('aboutUploadArea');
+    const aboutImageInput = document.getElementById('aboutImageInput');
+    if(aboutUploadArea && aboutImageInput) {
+      aboutUploadArea.addEventListener('click', (e) => {
+        if (e.target !== aboutImageInput) aboutImageInput.click();
+      });
+      aboutImageInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0]; if (!file) return;
+        const reader = new FileReader();
+        reader.onload = async (ev) => {
+          try {
+            state.aboutImage = await compressImage(ev.target.result, 600, 0.8);
+            saveState(state);
+            renderAboutImage();
+          } catch (err) { console.error('About image error:', err); alert('Lỗi khi tải ảnh.'); }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ===== LINKTREE MANAGEMENT =====
+    function renderLinks() {
+      const container = document.getElementById('linktreeLinks');
+      const adminList = document.getElementById('linksList');
+      const customLinks = state.links || [];
+
+      container.querySelectorAll('[data-custom]').forEach(el => el.remove());
+
+      customLinks.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.url; a.target = '_blank'; a.rel = 'noopener';
+        a.className = 'lt-link'; a.dataset.custom = link.id;
+        a.innerHTML = `<div class="lt-icon">${link.icon}</div><span class="lt-text">${link.title}</span><span class="lt-arrow">→</span>`;
+        container.appendChild(a);
+      });
+
+      adminList.innerHTML = customLinks.map(l => `
+        <li class="admin-item">
+          <span style="font-size:1.3rem">${l.icon}</span>
+          <div class="item-info"><h5>${l.title}</h5><small>${l.url}</small></div>
+          <button class="item-delete" data-delete-link="${l.id}">✕</button>
+        </li>
+      `).join('');
+
+      adminList.querySelectorAll('[data-delete-link]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.links = (state.links||[]).filter(l => l.id !== btn.dataset.deleteLink);
+          saveState(state); renderLinks();
+        });
+      });
+    }
+
+    document.getElementById('addLinkBtn').addEventListener('click', () => {
+      const icon = document.getElementById('linkIcon').value.trim() || '🔗';
+      const title = document.getElementById('linkTitle').value.trim();
+      const url = document.getElementById('linkUrl').value.trim();
+      if (!title || !url) return alert('Vui lòng nhập tiêu đề và URL');
+      if (!state.links) state.links = [];
+      state.links.push({ id: Date.now().toString(), icon, title, url });
+      saveState(state); renderLinks();
+      document.getElementById('linkIcon').value = '';
+      document.getElementById('linkTitle').value = '';
+      document.getElementById('linkUrl').value = '';
+    });
+
+    // ===== MEMORIES MANAGEMENT =====
+    if (!state.memories) {
+      state.memories = [
+        { id: 'default-1', title: 'Ngày đầu nhập học', date: 'Tháng 9, 2023', desc: 'Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.', image: '' },
+        { id: 'default-2', title: 'Thức đêm làm dự án', date: 'Tháng 12, 2023', desc: 'Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.', image: '' },
+        { id: 'default-3', title: 'Khám phá AI lần đầu', date: 'Tháng 3, 2024', desc: 'Trải nghiệm đầu tiên với ChatGPT và Gemini — mở ra thế giới mới.', image: '' },
+      ];
+      saveState(state);
+    }
+
+    function toggleMemoriesVisibility() {
+      const section = document.getElementById('memories');
+      const navLink = document.getElementById('navMemoriesLink');
+      const toggle = document.getElementById('hideMemoriesToggle');
+      
+      if (state.hideMemories) {
+        if(section) section.style.display = 'none';
+        if(navLink) navLink.style.display = 'none';
+        if(toggle) toggle.checked = true;
+      } else {
+        if(section) section.style.display = '';
+        if(navLink) navLink.style.display = '';
+        if(toggle) toggle.checked = false;
+      }
+    }
+
+    document.getElementById('hideMemoriesToggle').addEventListener('change', (e) => {
+      state.hideMemories = e.target.checked;
+      saveState(state);
+      toggleMemoriesVisibility();
+    });
+
+    function renderMemories() {
+      const grid = document.getElementById('memoriesGrid');
+      const adminList = document.getElementById('memoriesAdminList');
+      const memories = state.memories || [];
+
+      grid.querySelectorAll('.memory-card').forEach(el => el.remove());
+
+      const addBtn = document.getElementById('addMemoryBtn');
+      memories.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'memory-card reveal visible';
+        const imgHtml = m.image
+          ? `<div class="memory-img-wrapper"><img class="memory-img" src="${m.image}" alt="${m.title}"><div class="memory-date-tag">${m.date || ''}</div></div>`
+          : `<div class="memory-placeholder" style="position:relative;">📸<div class="memory-date-tag">${m.date || ''}</div></div>`;
+        card.innerHTML = `${imgHtml}<div class="memory-body"><h4>${m.title}</h4><p>${m.desc}</p></div>`;
+        if (m.image) card.addEventListener('click', () => openLightbox(m.image, m.title));
+        grid.insertBefore(card, addBtn);
+      });
+
+      adminList.innerHTML = memories.map((m, i) => `
+        <div class="admin-memory-entry" data-mem-idx="${i}">
+          <div class="entry-header">
+            <h5>#${i + 1} ${m.title || 'Kỉ niệm mới'}</h5>
+            <button class="entry-delete" data-del-mem="${m.id}">🗑</button>
+          </div>
+          <div class="admin-field">
+            <label>Tiêu đề</label>
+            <input type="text" data-mem-field="title" data-mem-id="${m.id}" value="${m.title || ''}">
+          </div>
+          <div class="admin-field">
+            <label>Ngày tháng</label>
+            <input type="text" data-mem-field="date" data-mem-id="${m.id}" value="${m.date || ''}" placeholder="VD: Tháng 9, 2023">
+          </div>
+          <div class="admin-field">
+            <label>Mô tả</label>
+            <textarea data-mem-field="desc" data-mem-id="${m.id}">${m.desc || ''}</textarea>
+          </div>
+          <div class="admin-field">
+            <label>Ảnh kỉ niệm (Tải file)</label>
+            <input type="file" accept="image/*" class="mem-image-upload" data-mem-id="${m.id}" style="font-size:0.8rem; background: #fff;">
+            ${m.image ? '<div style="margin-top:8px;font-size:0.8rem;color:#22c55e;font-weight:bold;">✅ Đã có ảnh</div>' : ''}
+          </div>
+        </div>
+      `).join('');
+
+      adminList.querySelectorAll('.mem-image-upload').forEach(input => {
+        input.addEventListener('change', async (e) => {
+          const file = e.target.files[0]; if (!file) return;
+          const memId = input.dataset.memId;
+          const reader = new FileReader();
+          reader.onload = async (ev) => {
+            try {
+              const base64 = await compressImage(ev.target.result, 500, 0.7);
+              const mem = state.memories.find(m => m.id === memId);
+              if (mem) { mem.image = base64; saveState(state); renderMemories(); }
+            } catch(err) { console.error(err); alert('Lỗi xử lý ảnh'); }
+          };
+          reader.readAsDataURL(file);
+        });
+      });
+
+      // Sửa lỗi nút xóa Kỉ niệm (Loại bỏ confirm để tránh bị iframe chặn)
+      adminList.querySelectorAll('[data-del-mem]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.memories = state.memories.filter(m => m.id !== btn.dataset.delMem);
+          saveState(state); renderMemories();
+        });
+      });
+    }
+
+    document.getElementById('addNewMemoryBtn').addEventListener('click', () => {
+      state.memories.push({
+        id: Date.now().toString(), title: 'Kỉ niệm mới', date: '', desc: '', image: ''
+      });
+      saveState(state); renderMemories();
+    });
+
+    document.getElementById('saveMemoriesBtn').addEventListener('click', () => {
+      document.querySelectorAll('[data-mem-field]').forEach(input => {
+        const id = input.dataset.memId;
+        const field = input.dataset.memField;
+        const mem = state.memories.find(m => m.id === id);
+        if (mem) mem[field] = input.value.trim();
+      });
+      saveState(state); renderMemories();
+      const msg = document.getElementById('memorySaveMsg');
+      msg.style.display = 'block'; setTimeout(() => { msg.style.display = 'none'; }, 2000);
+    });
+
+    document.getElementById('addMemoryBtn').addEventListener('click', () => {
+      openAdmin(); switchTab('memories');
+    });
+
+    // ===== LIGHTBOX =====
+    function openLightbox(src, caption) {
+      if (!src) return;
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').textContent = caption || '';
+      lb.classList.add('active');
+    }
+    document.getElementById('lightboxClose').addEventListener('click', () => document.getElementById('lightbox').classList.remove('active'));
+    document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.classList.remove('active'); });
+
+    // ===== ADMIN PANEL =====
+    const adminFab = document.getElementById('adminFab');
+    const adminPanel = document.getElementById('adminPanel');
+    const adminOverlay = document.getElementById('adminOverlay');
+
+    function openAdmin() { 
+      adminPanel.classList.add('open'); 
+      adminOverlay.style.display = 'block'; 
+      adminFab.classList.add('active'); 
+      populateAdminTexts();
+      populateSummaryTexts();
+    }
+    function closeAdmin() { 
+      adminPanel.classList.remove('open'); 
+      adminOverlay.style.display = 'none'; 
+      adminFab.classList.remove('active'); 
+    }
+
+    adminFab.addEventListener('click', () => adminPanel.classList.contains('open') ? closeAdmin() : openAdmin());
+    adminOverlay.addEventListener('click', closeAdmin);
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabName));
+      document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.toggle('active', c.id === 'tab-' + tabName));
+    }
+    document.querySelectorAll('.admin-tab').forEach(tab => {
+      tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+    });
+
+    // ===== PROJECT URLS MANAGEMENT =====
+    function renderProjectUrls() {
+      const urls = state.projectUrls || {};
+      for (let i = 1; i <= 6; i++) {
+        const link = document.querySelector(`[data-project-link="${i}"]`);
+        const ltLink = document.querySelector(`[data-lt-project="${i}"]`);
+        const url = urls[i] || '';
+
+        if (link) {
+          if (url) {
+            link.href = url; link.target = '_blank'; link.rel = 'noopener';
+            link.innerHTML = 'Xem chi tiết →';
+            link.style.background = '#000'; link.style.color = '#fff';
+          } else {
+            link.href = '#'; link.target = '';
+            link.innerHTML = 'Chưa có link · Nhấn ⚙ để thêm';
+            link.style.background = '#fff'; link.style.color = '#000';
+            link.addEventListener('click', (e) => {
+              if (!link.href || link.getAttribute('href') === '#') {
+                e.preventDefault(); openAdmin(); switchTab('projects');
+              }
+            }, { once: true });
+          }
+        }
+
+        if (ltLink) {
+          ltLink.href = url || '#projects';
+          if (url) { ltLink.target = '_blank'; ltLink.rel = 'noopener'; }
+          else { ltLink.target = ''; }
+        }
+
+        const input = document.getElementById(`projectUrl${i}`);
+        if (input) input.value = url;
+      }
+    }
+
+    document.getElementById('saveProjectUrls').addEventListener('click', () => {
+      if (!state.projectUrls) state.projectUrls = {};
+      for (let i = 1; i <= 6; i++) {
+        const val = document.getElementById(`projectUrl${i}`).value.trim();
+        state.projectUrls[i] = val;
+      }
+      saveState(state); renderProjectUrls();
+      const msg = document.getElementById('projectSaveMsg');
+      msg.style.display = 'block'; setTimeout(() => { msg.style.display = 'none'; }, 2000);
+    });
+
+    // ===== TEXT MANAGEMENT (HERO, ABOUT, SUMMARY) =====
+    function formatListToHtml(text) {
+      if(!text) return '';
+      return text.split('\n').filter(l => l.trim()).map(l => `<li>${l.trim()}</li>`).join('');
+    }
+
+    function renderTexts() {
+      if(!state.texts) return;
+      if(state.texts.heroTitle && document.getElementById('heroTitle')) document.getElementById('heroTitle').innerHTML = state.texts.heroTitle;
+      
+      const highlight = state.texts.heroHighlight || 'Nguyễn Văn A';
+      if(document.getElementById('heroHighlight')) document.getElementById('heroHighlight').innerHTML = highlight;
+      if(document.getElementById('ltName')) document.getElementById('ltName').innerHTML = highlight;
+      if(document.getElementById('footerName')) document.getElementById('footerName').innerHTML = highlight;
+      
+      if(state.texts.heroDesc && document.getElementById('heroDesc')) document.getElementById('heroDesc').innerHTML = state.texts.heroDesc;
+      if(state.texts.aboutMotto && document.getElementById('aboutMotto')) document.getElementById('aboutMotto').innerHTML = state.texts.aboutMotto;
+      
+      if(state.texts.aboutInfoTitle && document.getElementById('aboutInfoTitle')) document.getElementById('aboutInfoTitle').innerHTML = state.texts.aboutInfoTitle;
+      if(state.texts.aboutInfoText && document.getElementById('aboutInfoText')) document.getElementById('aboutInfoText').innerHTML = state.texts.aboutInfoText;
+      if(state.texts.aboutTitle && document.getElementById('aboutTitle')) document.getElementById('aboutTitle').innerHTML = state.texts.aboutTitle;
+      
+      if(state.texts.aboutP1 && document.getElementById('aboutP1')) document.getElementById('aboutP1').innerHTML = state.texts.aboutP1;
+      if(state.texts.aboutP2 && document.getElementById('aboutP2')) document.getElementById('aboutP2').innerHTML = state.texts.aboutP2;
+      
+      if(state.texts.aboutLabel1 && document.getElementById('aboutLabel1')) document.getElementById('aboutLabel1').innerHTML = state.texts.aboutLabel1;
+      if(state.texts.aboutText1 && document.getElementById('aboutText1')) document.getElementById('aboutText1').innerHTML = state.texts.aboutText1;
+      if(state.texts.aboutLabel2 && document.getElementById('aboutLabel2')) document.getElementById('aboutLabel2').innerHTML = state.texts.aboutLabel2;
+      if(state.texts.aboutText2 && document.getElementById('aboutText2')) document.getElementById('aboutText2').innerHTML = state.texts.aboutText2;
+
+      // Summary Renderer
+      for(let i=1; i<=3; i++){
+        if(state.texts[`sumTitle${i}`]) document.getElementById(`sumTitle${i}`).innerHTML = state.texts[`sumTitle${i}`];
+        if(state.texts[`sumDesc${i}`]) document.getElementById(`sumDesc${i}`).innerHTML = state.texts[`sumDesc${i}`];
+        if(state.texts[`sumList${i}`]) document.getElementById(`sumList${i}`).innerHTML = formatListToHtml(state.texts[`sumList${i}`]);
+      }
+    }
+
+    function populateAdminTexts() {
+      if(!state.texts) state.texts = {};
+      document.getElementById('adminHeroTitle').value = state.texts.heroTitle || 'Xin chào, tôi là';
+      document.getElementById('adminHeroHighlight').value = state.texts.heroHighlight || 'Nguyễn Văn A';
+      document.getElementById('adminHeroDesc').value = state.texts.heroDesc || 'Sinh viên ngành Công nghệ thông tin...';
+      
+      document.getElementById('adminAboutInfoTitle').value = state.texts.aboutInfoTitle || 'Đang học tập';
+      document.getElementById('adminAboutInfoText').value = state.texts.aboutInfoText || 'Năm học 2025-2026';
+      document.getElementById('adminAboutTitle').value = state.texts.aboutTitle || 'Sinh viên đam mê công nghệ & kỹ năng số';
+      
+      document.getElementById('adminAboutP1').value = state.texts.aboutP1 || 'Tôi là sinh viên ngành Công nghệ thông tin...';
+      document.getElementById('adminAboutP2').value = state.texts.aboutP2 || 'Portfolio này là tập hợp các bài tập...';
+      
+      document.getElementById('adminAboutLabel1').value = state.texts.aboutLabel1 || 'Sở thích:';
+      document.getElementById('adminAboutText1').value = state.texts.aboutText1 || 'Lập trình, đọc sách công nghệ, chỉnh sửa video, thiết kế đồ họa.';
+      document.getElementById('adminAboutLabel2').value = state.texts.aboutLabel2 || 'Điểm mạnh:';
+      document.getElementById('adminAboutText2').value = state.texts.aboutText2 || 'Tư duy logic, khả năng tự học, làm việc nhóm hiệu quả.';
+      
+      document.getElementById('adminAboutMotto').value = state.texts.aboutMotto || 'Học tập không chỉ là tiếp nhận kiến thức...';
+    }
+
+    function populateSummaryTexts() {
+      if(!state.texts) state.texts = {};
+      const defaultLists = [
+        "Kỹ năng quản lý thời gian và dự án\nTư duy phản biện với thông tin số\nSử dụng AI hỗ trợ sáng tạo nội dung\nKỹ năng thuyết trình và trình bày",
+        "Tìm kiếm và đánh giá thông tin\nSáng tạo nội dung đa phương tiện\nHợp tác trực tuyến hiệu quả\nSử dụng AI có trách nhiệm",
+        "Nâng cao kỹ năng lập trình\nTìm hiểu sâu hơn về AI/ML\nPhát triển dự án cá nhân thực tế\nTham gia cộng đồng công nghệ"
+      ];
+      for(let i=1; i<=3; i++){
+        document.getElementById(`adminSumTitle${i}`).value = state.texts[`sumTitle${i}`] || document.getElementById(`sumTitle${i}`).innerText;
+        document.getElementById(`adminSumDesc${i}`).value = state.texts[`sumDesc${i}`] || document.getElementById(`sumDesc${i}`).innerText;
+        document.getElementById(`adminSumList${i}`).value = state.texts[`sumList${i}`] || defaultLists[i-1];
+      }
+    }
+
+    document.getElementById('saveHeroBtn').addEventListener('click', () => {
+      if(!state.texts) state.texts = {};
+      state.texts.heroTitle = document.getElementById('adminHeroTitle').value.trim();
+      state.texts.heroHighlight = document.getElementById('adminHeroHighlight').value.trim();
+      state.texts.heroDesc = document.getElementById('adminHeroDesc').value.trim();
+      saveState(state); renderTexts();
+      
+      const msg = document.getElementById('heroSaveMsg');
+      msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000);
+    });
+
+    document.getElementById('saveAboutBtn').addEventListener('click', () => {
+      if(!state.texts) state.texts = {};
+      state.texts.aboutInfoTitle = document.getElementById('adminAboutInfoTitle').value.trim();
+      state.texts.aboutInfoText = document.getElementById('adminAboutInfoText').value.trim();
+      state.texts.aboutTitle = document.getElementById('adminAboutTitle').value.trim();
+      state.texts.aboutP1 = document.getElementById('adminAboutP1').value.trim();
+      state.texts.aboutP2 = document.getElementById('adminAboutP2').value.trim();
+      state.texts.aboutLabel1 = document.getElementById('adminAboutLabel1').value.trim();
+      state.texts.aboutText1 = document.getElementById('adminAboutText1').value.trim();
+      state.texts.aboutLabel2 = document.getElementById('adminAboutLabel2').value.trim();
+      state.texts.aboutText2 = document.getElementById('adminAboutText2').value.trim();
+      state.texts.aboutMotto = document.getElementById('adminAboutMotto').value.trim();
+      
+      saveState(state); renderTexts();
+      const msg = document.getElementById('aboutSaveMsg');
+      msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000);
+    });
+
+    document.getElementById('saveSummaryBtn').addEventListener('click', () => {
+      if(!state.texts) state.texts = {};
+      for(let i=1; i<=3; i++){
+        state.texts[`sumTitle${i}`] = document.getElementById(`adminSumTitle${i}`).value.trim();
+        state.texts[`sumDesc${i}`] = document.getElementById(`adminSumDesc${i}`).value.trim();
+        state.texts[`sumList${i}`] = document.getElementById(`adminSumList${i}`).value.trim();
+      }
+      saveState(state); renderTexts();
+      const msg = document.getElementById('sumSaveMsg');
+      msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000);
+    });
+
+    // ===== EXPORT SOURCE CODE FUNCTION =====
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      // 1. Get entire HTML
+      let htmlContent = '<!DOCTYPE html>\n<html lang="vi">\n' + document.documentElement.innerHTML + '\n</html>';
+      
+      // 2. Inject current state directly into the code so it works offline/hosted
+      const stateString = JSON.stringify(state);
+      htmlContent = htmlContent.replace(
+        'const INJECTED_STATE = {"memories":[{"id":"default-1","title":"Ngày đầu nhập học","date":"Tháng 9, 2023","desc":"Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.","image":""},{"id":"default-2","title":"Thức đêm làm dự án","date":"Tháng 12, 2023","desc":"Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.","image":""},{"id":"1777601986725","title":"Kỉ niệm mới","date":"","desc":"","image":""}],"texts":{}};',
+        `const INJECTED_STATE = ${stateString};`
+      );
+
+      // 3. Create file and force download
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'portfolio.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // ===== INIT =====
+    renderAvatar();
+    renderAboutImage();
+    renderTexts();
+    renderLinks();
+    renderMemories();
+    renderProjectUrls();
+    toggleMemoriesVisibility();
+
+    console.log('✨ Portfolio loaded with all features!');
+  </script>
+
+
+</body>
+</html>
