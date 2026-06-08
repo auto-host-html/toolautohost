@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân - Trình bày kết quả bài tập dự án Tin học ứng dụng. Tổng hợp các kỹ năng số và nghiên cứu.">
+  <title>Portfolio Cá Nhân | Tin Học Ứng Dụng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #f8f9fa;
+      --bg-secondary: #e9ecef;
+      --bg-card: #ffffff;
+      --bg-glass: #ffffff;
+      --border-glass: #000000;
+      --text-primary: #000000;
+      --text-secondary: #212529;
+      --text-muted: #495057;
+      --accent-1: #000000;
+      --accent-2: #000000;
+      --accent-3: #000000;
+      --accent-4: #000000;
+      --gradient-main: #000000;
+      --gradient-warm: #000000;
+      --gradient-cool: #000000;
+      --shadow-glow: 12px 12px 0 0 #000000;
+      --radius-sm: 0;
+      --radius-md: 0;
+      --radius-lg: 0;
+      --radius-xl: 0;
+      --border-thick: 4px solid #000000;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* Image Grayscale Effect */
+    img {
+      filter: grayscale(100%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    img:hover, .project-card:hover img {
+      filter: grayscale(0%);
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top:0; left:0; width:100%; z-index:1000;
+      padding: 16px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #ffffff;
+      border-bottom: var(--border-thick);
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled { padding: 12px 40px; box-shadow: 0 4px 0 0 #000; }
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #000;
+    }
+    .nav-links { display:flex; gap:8px; list-style:none; }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      padding: 8px 20px;
+      font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      border: 2px solid #000;
+      background: #f0f0f0;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      padding: 120px 40px 80px;
+    }
+    .hero-bg-grid {
+      position: absolute; inset:0;
+      background-image:
+        linear-gradient(#e5e5e5 2px, transparent 2px),
+        linear-gradient(90deg, #e5e5e5 2px, transparent 2px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative; z-index:1;
+      max-width: 900px; text-align: center;
+    }
+    .hero-avatar {
+      width: 160px; height: 160px;
+      margin: 0 auto 32px;
+      border: 4px solid #000;
+      background: #fff;
+      box-shadow: 8px 8px 0 0 #000;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px;
+      background: #fff;
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 0 #000;
+      font-size: 0.9rem; font-weight: 800; color: #000;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease;
+    }
+    .hero-badge .dot {
+      width:12px; height:12px;
+      background: #000;
+      border-radius: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; }
+      50% { opacity:0.2; }
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #000;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero-title .gradient-text {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: #000;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto 40px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-cta {
+      display: flex; gap: 16px; justify-content: center; flex-wrap:wrap;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .btn {
+      padding: 14px 32px;
+      font-size: 0.95rem; font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer; 
+      display: inline-flex; align-items: center; gap: 8px;
+      border: var(--border-thick);
+      background: #fff;
+      color: #000;
+      box-shadow: 6px 6px 0 0 #000;
+    }
+    .btn:hover { 
+      transform: translate(-4px, -4px); 
+      box-shadow: 10px 10px 0 0 #000; 
+    }
+    .btn-primary {
+      background: #000;
+      color: #fff;
+      box-shadow: 6px 6px 0 0 #ccc;
+    }
+    .btn-primary:hover { 
+      box-shadow: 10px 10px 0 0 #ccc; 
+    }
+    .btn-outline { background: #fff; }
+
+    .scroll-indicator {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 0.8rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-indicator .line { width:1px; height:30px; background: linear-gradient(to bottom, var(--accent-1), transparent); }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 100px 40px; position: relative; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-label {
+      font-size: 0.85rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px;
+      color: #000; display: inline-block;
+      border: 2px solid #000; padding: 4px 12px;
+      background: #facc15; margin-bottom: 16px;
+      box-shadow: 4px 4px 0 0 #000;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 16px;
+    }
+    .section-desc { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+
+    /* ===== ABOUT ===== */
+    .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-image-wrapper { position: relative; }
+    .about-image-card { width: 100%; aspect-ratio: 3/4; background: #fff; border: var(--border-thick); box-shadow: var(--shadow-glow); overflow: hidden; position: relative; }
+    .about-image-card img { width:100%; height:100%; object-fit:cover; }
+    .about-image-card .overlay { position: absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%); }
+    .about-float-card {
+      position: absolute; bottom: -20px; right: -20px;
+      background: #fff; border: var(--border-thick);
+      box-shadow: 8px 8px 0 0 #000; padding: 20px 24px;
+      display: flex; align-items: center; gap: 12px;
+      transition: transform 0.2s ease;
+    }
+    .about-float-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 0 #000; }
+    .about-float-card .icon { width:48px; height:48px; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .about-float-card .info h4 { font-size:0.9rem; font-weight:600; }
+    .about-float-card .info p { font-size:0.8rem; color:var(--text-secondary); }
+    .about-text h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+    .about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    .stat-item { text-align: center; padding: 20px; background: #fff; border: var(--border-thick); box-shadow: 6px 6px 0 0 #000; transition: transform 0.2s ease; }
+    .stat-item:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 0 #000; }
+    .stat-item .number { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: #000; }
+    .stat-item .label { font-size:0.8rem; color:var(--text-muted); margin-top:4px; }
+
+    /* ===== SKILLS ===== */
+    .skills-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .skill-card { padding: 32px; background: #fff; border: var(--border-thick); transition: all 0.2s ease; position: relative; overflow: hidden; box-shadow: 6px 6px 0 0 #000; }
+    .skill-card::before { content: ''; position: absolute; top:0; left:0; right:0; height:8px; background: #000; transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-card:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 0 #000; }
+    .skill-icon { width:56px; height:56px; background: #f0f0f0; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; box-shadow: 4px 4px 0 0 #000; }
+    .skill-card h3 { font-size:1.1rem; font-weight:600; margin-bottom:8px; }
+    .skill-card p { font-size:0.9rem; color:var(--text-secondary); }
+
+    /* ===== PROJECTS ===== */
+    .projects-container { max-width:1100px; margin:0 auto; }
+    .project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 48px; background: #fff; border: var(--border-thick); margin-bottom: 32px; transition: all 0.2s ease; position: relative; box-shadow: 10px 10px 0 0 #000; }
+    .project-card:hover { transform: translate(-4px,-4px); box-shadow: 14px 14px 0 0 #000; }
+    .project-card:nth-child(even) .project-preview { order:-1; }
+    .project-number { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; color: #000; -webkit-text-stroke: 2px #000; text-shadow: 4px 4px 0 #ccc; line-height: 1; margin-bottom: 16px; }
+    .project-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
+    .project-info p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+    .project-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+    .project-tag { padding: 6px 14px; background: #f0f0f0; border: 2px solid #000; font-size: 0.8rem; font-weight: 700; color: #000; text-transform: uppercase; box-shadow: 2px 2px 0 0 #000; }
+    .project-preview { width:100%; aspect-ratio:16/10; background: repeating-linear-gradient(45deg, #000, #000 10px, #fff 10px, #fff 20px); border: var(--border-thick); position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 6px 6px 0 0 #000; }
+
+    /* ===== MEMORIES ===== */
+    .memories-title-bar { border-bottom: 4px solid #000; border-top: 4px solid #000; padding: 20px 40px; background: #facc15; margin-bottom: 40px; text-align: center; }
+    .memories-title-bar h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900; letter-spacing: 2px; }
+    .memories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .memory-card { border: 4px solid #000; background: #fff; box-shadow: 8px 8px 0 0 #000; transition: transform 0.2s; cursor: pointer; }
+    .memory-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 0 #000; }
+    .memory-img-wrapper, .memory-placeholder { width: 100%; aspect-ratio: 1; border-bottom: 4px solid #000; position: relative; background: #e5e5e5; display:flex; align-items:center; justify-content:center; font-size:3rem; }
+    .memory-img { width: 100%; height: 100%; object-fit: cover; }
+    .memory-date-tag { position: absolute; top: 12px; right: 12px; background: #fff; border: 2px solid #000; padding: 4px 8px; font-size: 0.8rem; font-weight: 700; box-shadow: 2px 2px 0 0 #000; }
+    .memory-body { padding: 20px; }
+    .memory-body h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+    .memory-body p { font-size: 0.9rem; color: #495057; }
+
+    /* ===== SUMMARY ===== */
+    .summary-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .summary-card { padding: 40px; background: #fff; border: var(--border-thick); box-shadow: 8px 8px 0 0 #000; transition: all 0.2s ease; }
+    .summary-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 0 #000; }
+    .summary-card .card-icon { width:64px; height:64px; border: 4px solid #000; background: #f0f0f0; display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin-bottom:24px; box-shadow: 4px 4px 0 0 #000; }
+    .summary-card h3 { font-size:1.2rem; font-weight:600; margin-bottom:12px; }
+    .summary-card p { color:var(--text-secondary); font-size:0.95rem; }
+    .summary-card ul { list-style:none; margin-top:16px; }
+    .summary-card ul li { padding: 8px 0; color: var(--text-secondary); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border-glass); }
+    .summary-card ul li:last-child { border:none; }
+    .summary-card ul li::before { content: '✦'; color: var(--accent-1); font-size: 0.7rem; }
+
+    /* ===== FOOTER ===== */
+    .footer { padding: 60px 40px 30px; border-top: 4px solid #000; text-align: center; background: #fff; }
+    .footer-links { display:flex; justify-content:center; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+    .footer-links a { color:var(--text-secondary); text-decoration:none; font-size:0.9rem; transition: color 0.3s; font-weight: 600; }
+    .footer-links a:hover { color:var(--text-primary); text-decoration: underline; }
+    .footer-copy { color:var(--text-muted); font-size:0.85rem; font-weight: 500; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100000; display: none; align-items: center; justify-content: center; flex-direction: column; opacity: 0; transition: opacity 0.3s; }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img { max-width: 90%; max-height: 80vh; border: 4px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+    .lightbox-caption { color: #fff; margin-top: 16px; font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: 600;}
+    .lightbox-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; }
+
+    /* ===== ANIMATIONS & RESPONSIVE ===== */
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    
+    .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 12px 20px; }
+      .nav-links { display:none; }
+      .mobile-menu-btn { display:block; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-title { font-size: 2.2rem; }
+      .section { padding: 60px 20px; }
+      .about-grid { grid-template-columns:1fr; gap:32px; }
+      .about-stats { grid-template-columns: repeat(3,1fr); }
+      .project-card { grid-template-columns:1fr; padding:24px; gap:24px; }
+      .project-card:nth-child(even) .project-preview { order:0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-logo">Portfolio.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="">Trang chủ</a></li>
+      <li><a href="#about" class="">Giới thiệu</a></li>
+      <li><a href="#projects" class="">Dự án</a></li>
+      <li id="navMemoriesLink"><a href="#memories" class="">Kỉ niệm</a></li>
+      <li><a href="#summary" class="active">Tổng kết</a></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-avatar" id="heroAvatar">
+        <div class="avatar-placeholder" style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;">🧑‍🎓</div>
+      </div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Portfolio bài tập hết học phần
+      </div>
+      <h1 class="hero-title">
+        <span id="heroTitle">Welcome to portfolio</span><br>
+        <span class="gradient-text" id="heroHighlight">Nguyễn Bá Quân</span>
+      </h1>
+      <p class="hero-subtitle" id="heroDesc" style="opacity: 1;">Sinh viên ngành quản trị đô thị.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary"><span>📂</span> Xem Dự Án</a>
+        <a href="#about" class="btn btn-outline"><span>👋</span> Về Tôi</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="line"></div>
+      Cuộn xuống
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-header reveal visible">
+      <div class="section-label">Giới thiệu</div>
+      <h2 class="section-title">Đôi nét về tôi</h2>
+      <p class="section-desc">Tìm hiểu thêm về sở thích, kinh nghiệm và mục tiêu học tập của tôi</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal visible">
+        <div class="about-image-card" id="aboutImageCard">
+          <div class="memory-placeholder" style="width:100%;height:100%;font-size:1.5rem;font-weight:700;color:#000;background:#e5e5e5;display:flex;align-items:center;justify-content:center;">Chưa có ảnh</div>
+        </div>
+        <div class="about-float-card">
+          <div class="icon">🏆</div>
+          <div class="info">
+            <h4 id="aboutInfoTitle">My friend</h4>
+            <p id="aboutInfoText">Oách xà lách</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2 visible">
+        <h3 id="aboutTitle">Sinh viên đam mê công nghệ & kỹ năng số</h3>
+        <p id="aboutP1">Tôi là sinh viên ngành quản trị đô thị, luôn tìm tòi và khám phá các ứng dụng công nghệ mới trong học tập và cuộc sống. Tôi có niềm đam mê đặc biệt với lĩnh vực đọc dữ liệu, thiết kế.</p>
+        <p id="aboutP2">Portfolio này là tập hợp các bài tập nghiên cứu và dự án mà tôi đã hoàn thành trong quá trình học môn công nghệ số và AI. Mỗi bài tập thể hiện một khía cạnh khác nhau của kỹ năng số mà tôi đã rèn luyện.</p>
+        <p>
+          <strong id="aboutLabel1">Sở thích:</strong> <span id="aboutText1">Chơi game, nghe nhạc, đi chơi cùng bạn bè</span><br>
+          <strong id="aboutLabel2">Điểm mạnh:</strong> <span id="aboutText2">Tư duy logic, khả năng tự học</span>
+        </p>
+        <div class="about-stats">
+          <div class="stat-item"><div class="number">6</div><div class="label">Bài tập</div></div>
+          <div class="stat-item"><div class="number">3</div><div class="label">Trang</div></div>
+          <div class="stat-item"><div class="number">∞</div><div class="label">Đam mê</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills" style="background:var(--bg-secondary);">
+    <div class="section-header reveal visible">
+      <div class="section-label">Kỹ năng</div>
+      <h2 class="section-title">Năng lực số đã phát triển</h2>
+      <p class="section-desc">Các kỹ năng cốt lõi tôi đã rèn luyện qua từng bài tập</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(108,92,231,0.2),rgba(108,92,231,0.05));">💻</div><h3>Thiết bị & Hệ thống</h3><p>Hiểu biết về máy tính, thiết bị người dùng và cách tối ưu hóa hệ thống phần cứng, phần mềm.</p></div>
+      <div class="skill-card reveal reveal-delay-1 visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05));">🔍</div><h3>Tìm kiếm & Đánh giá</h3><p>Kỹ năng tìm kiếm thông tin hiệu quả, đánh giá độ tin cậy và trích dẫn nguồn tài liệu chính xác.</p></div>
+      <div class="skill-card reveal reveal-delay-2 visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(244,63,94,0.2),rgba(244,63,94,0.05));">📝</div><h3>Viết Prompt AI</h3><p>Thành thạo kỹ thuật Prompt Engineering để tương tác hiệu quả với các công cụ AI như ChatGPT, Gemini.</p></div>
+      <div class="skill-card reveal reveal-delay-1 visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(251,146,60,0.2),rgba(251,146,60,0.05));">🤝</div><h3>Hợp tác trực tuyến</h3><p>Sử dụng các công cụ cộng tác như Google Docs, Trello, Notion để làm việc nhóm hiệu quả.</p></div>
+      <div class="skill-card reveal reveal-delay-2 visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(34,197,94,0.2),rgba(34,197,94,0.05));">🎨</div><h3>Sáng tạo nội dung số</h3><p>Tạo nội dung đa phương tiện: hình ảnh, video, infographic bằng các công cụ AI và phần mềm chuyên dụng.</p></div>
+      <div class="skill-card reveal reveal-delay-3 visible"><div class="skill-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.2),rgba(168,85,247,0.05));">🛡️</div><h3>An toàn & Trách nhiệm</h3><p>Nhận thức về an toàn thông tin, bảo mật dữ liệu và sử dụng AI có trách nhiệm, đạo đức.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-header reveal visible">
+      <div class="section-label">Dự án</div>
+      <h2 class="section-title">Các bài tập đã hoàn thành</h2>
+      <p class="section-desc">6 bài tập thể hiện quá trình học tập và nghiên cứu của tôi</p>
+    </div>
+    <div class="projects-container">
+      <div class="project-card reveal visible" data-project="1">
+        <div class="project-info">
+          <div class="project-number">01</div>
+          <h3>Máy tính và các thiết bị người dùng</h3>
+          <p>Thao tác cơ bản với tệp tin và thư mục. Trình bày cấu trúc thư mục tối ưu, cách tạo và quản lý dữ liệu. Thiết lập hệ thống sắp xếp file khoa học và hiệu quả cho công việc học tập.</p>
+          <div class="project-tags"><span class="project-tag">📁 Quản lý File</span><span class="project-tag">⚙️ Thiết bị</span><span class="project-tag">🖥️ Hệ thống</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="1">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+      <div class="project-card reveal visible" data-project="2">
+        <div class="project-info">
+          <div class="project-number">02</div>
+          <h3>Tìm kiếm và đánh giá thông tin tin học thuật</h3>
+          <p>Trình bày kết quả tìm kiếm học thuật, đánh giá tài liệu theo tiêu chí độ tin cậy và ứng dụng. Sử dụng Google Scholar và các cơ sở dữ liệu học thuật để tìm nguồn tài liệu đáng tin cậy.</p>
+          <div class="project-tags"><span class="project-tag">🔎 Tìm kiếm</span><span class="project-tag">📊 Đánh giá</span><span class="project-tag">📚 Học thuật</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="2">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+      <div class="project-card reveal visible" data-project="3">
+        <div class="project-info">
+          <div class="project-number">03</div>
+          <h3>Viết Prompt hiệu quả cho các tác vụ học tập</h3>
+          <p>Thực hành so sánh kết quả giữa Prompt cơ bản và Prompt cải tiến. Trình bày kỹ thuật viết Prompt tối ưu để khai thác tối đa tiềm năng của các công cụ AI trong học tập và nghiên cứu.</p>
+          <div class="project-tags"><span class="project-tag">🤖 AI</span><span class="project-tag">✍️ Prompt</span><span class="project-tag">📈 So sánh</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="3">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+      <div class="project-card reveal visible" data-project="4">
+        <div class="project-info">
+          <div class="project-number">04</div>
+          <h3>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
+          <p>Trình bày minh chứng về việc sử dụng công cụ quản lý dự án nhóm và cách thức phối hợp trực tuyến. Chia sẻ kinh nghiệm làm việc nhóm hiệu quả trong môi trường số.</p>
+          <div class="project-tags"><span class="project-tag">👥 Nhóm</span><span class="project-tag">🔗 Cộng tác</span><span class="project-tag">📋 Quản lý</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="4">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+      <div class="project-card reveal visible" data-project="5">
+        <div class="project-info">
+          <div class="project-number">05</div>
+          <h3>Sử dụng AI tạo sản phẩm sáng tạo nội dung</h3>
+          <p>Trưng bày sản phẩm nội dung số hoàn thiện (hình ảnh, video hoặc bài viết) được hỗ trợ bởi AI. Thể hiện quy trình sáng tạo từ ý tưởng đến sản phẩm hoàn chỉnh.</p>
+          <div class="project-tags"><span class="project-tag">🎨 Sáng tạo</span><span class="project-tag">🤖 AI</span><span class="project-tag">🎬 Đa phương tiện</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="5">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+      <div class="project-card reveal visible" data-project="6">
+        <div class="project-info">
+          <div class="project-number">06</div>
+          <h3>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
+          <p>Trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm. Phân tích các vấn đề đạo đức, bản quyền và tính minh bạch khi ứng dụng AI trong môi trường học thuật.</p>
+          <div class="project-tags"><span class="project-tag">⚖️ Đạo đức</span><span class="project-tag">🛡️ Trách nhiệm</span><span class="project-tag">📜 Nguyên tắc</span></div>
+          <a href="#" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 24px; background: rgb(255, 255, 255); color: rgb(0, 0, 0);" data-project-link="6">Chưa có link</a>
+        </div>
+        <div class="project-preview"><div style="text-align:center;padding:40px;"><div style="font-size:4rem;margin-bottom:16px;"></div><div style="color:var(--text-muted);font-size:0.9rem;font-weight:700;"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="memories" style="background:var(--bg-secondary);">
+    <div class="memories-title-bar reveal visible"><h2>KỈ NIỆM</h2></div>
+    <div class="memories-grid" id="memoriesGrid">
+    </div>
+  </section>
+
+  <section class="section" id="summary" style="background:var(--bg-secondary);">
+    <div class="section-header reveal visible">
+      <div class="section-label">Tổng kết</div>
+      <h2 class="section-title">Những gì tôi đã học được</h2>
+      <p class="section-desc">Chia sẻ kinh nghiệm, bài học và kế hoạch phát triển trong tương lai</p>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card reveal visible">
+        <div class="card-icon">💡</div>
+        <h3 id="sumTitle1">Kinh nghiệm đã tích lũy</h3>
+        <p id="sumDesc1">Qua quá trình hoàn thành portfolio, tôi đã có cơ hội nhìn lại toàn bộ hành trình học tập của mình.</p>
+        <ul id="sumList1">
+          <li>Kỹ năng quản lý thời gian và dự án</li>
+          <li>Tư duy phản biện với thông tin số</li>
+          <li>Sử dụng AI hỗ trợ sáng tạo nội dung</li>
+          <li>Kỹ năng thuyết trình và trình bày</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-delay-1 visible">
+        <div class="card-icon">🎯</div>
+        <h3 id="sumTitle2">Kỹ năng số đã phát triển</h3>
+        <p id="sumDesc2">Những kỹ năng cốt lõi mà tôi đã rèn luyện và phát triển qua từng bài tập.</p>
+        <ul id="sumList2">
+          <li>Tìm kiếm và đánh giá thông tin</li>
+          <li>Sáng tạo nội dung đa phương tiện</li>
+          <li>Hợp tác trực tuyến hiệu quả</li>
+          <li>Sử dụng AI có trách nhiệm</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-delay-2 visible">
+        <div class="card-icon">🚀</div>
+        <h3 id="sumTitle3">Hướng phát triển tương lai</h3>
+        <p id="sumDesc3">Những mục tiêu và hướng đi tôi muốn theo đuổi trong tương lai gần.</p>
+        <ul id="sumList3">
+          <li>Nâng cao kỹ năng ngoại ngữ</li>
+          <li>Tìm hiểu sâu hơn về việc phân tích dữ liệu</li>
+          <li>Phát triển dự án cá nhân thực tế</li>
+          <li>Tham gia Heineken</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal visible" style="max-width:700px;margin:64px auto 0;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:16px;opacity:0.3;">❝</div>
+      <blockquote id="aboutMotto" style="font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:500;font-style:italic;color:#1a1a1a;line-height:1.8;">
+        Học thôi, học thôiiii
+      </blockquote>
+      <div style="margin-top:16px;color:var(--text-muted);font-size:0.9rem;font-weight:bold;">— Châm ngôn cá nhân</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#hero">Trang chủ</a><a href="#about">Giới thiệu</a><a href="#skills">Kỹ năng</a><a href="#projects">Dự án</a><a href="#summary">Tổng kết</a>
+    </div>
+    <p class="footer-copy">© 2026 Portfolio Tin Học Ứng Dụng. Thiết kế với 💜 bởi <span id="footerName">Nguyễn Văn A</span></p>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img src="" alt="" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <script>
+    // ===== INJECTED STATE FOR EXPORT =====
+    const INJECTED_STATE = {"projectUrls":{"1":"https://lh3.googleusercontent.com/pw/AP1GczOy_2RihmQsiMV2gueT7ei8DRXIJqmOvsPxkDgAuSUEJ9vCnWW_eBMpyXq6lHkGptd7Zr8xOQ0zkMtovvuTcvYJOEhaMXBiBRp1WGyzHUfEIyapZ3Uv65RidrGpC3kSz8YkiQ8EU7pT-lrAEQ6J26hG=w1589-h1190-s-no-gm?authuser=0","2":"LINK_BÀI_2","3":"LINK_BÀI_3","4":"LINK_BÀI_4","5":"LINK_BÀI_5","6":"LINK_BÀI_6"}, "aboutImage": "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/717042225_27630987383152100_6037024200302845319_n.jpg?stp=dst-jpg_tt6&cstp=mx787x1280&ctp=p526x296&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeERkfVTCNjHE1T9kvS3Kr9RG-VowF-9SJob5WjAX71Imtc0QeCnVnbJZhBdN3b21YnpWncjWKmzl-uXtmSnWI2t&_nc_ohc=zKeWb5ftSG8Q7kNvwGW10v7&_nc_oc=AdpswDCfVSLsiuZL8CWEU0mn_8kJmtD-ri9vlNsVhZhTYCgn6K-IUPN7McuIkQBlEs4&_nc_zt=23&_nc_ht=scontent.fhan3-3.fna&_nc_gid=5nquNm9HJO0PNYAKYgjMZA&_nc_ss=7b2a8&oh=00_Af8Rt1X9jQFTASR_hNAzME-EvT9SQKrgkkYW7vjm_C7cyQ&oe=6A2B7D42", "avatar": "https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/532347057_24702287969355404_5990645388997507125_n.jpg?stp=dst-jpg_tt6&cstp=mx736x740&ctp=s736x740&_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGXpwgSmkRg2tFFieXKNnuDE_f4vU_D2qwT9_i9T8ParJ9nh2vn1qDNhg2DjncSdQkwC8wRrZINQoj8truKifOl&_nc_ohc=lapY4nm9upkQ7kNvwH3hG_F&_nc_oc=AdrxyScdTU1iSSNMnUqqA2BVUwCjiqfbyA-q47d327XB1L1TnEj6BYyg3XionhheJEw&_nc_zt=23&_nc_ht=scontent.fhan3-2.fna&_nc_gid=cfQJB5ClA9oZIm1BAsvm4Q&_nc_ss=7b2a8&oh=00_Af9XU4gdmZbLDZUQOX6iVWRSPgTq-uu02OKtzzEGLdPbkA&oe=6A2B7E61", "memories":[{"id":"default-1","title":"Bảo tàng lịch sử Việt Nam","date":"Tháng 9, 2023","desc":"Nhìn lại một phần lịch sử","image":"https://lh3.googleusercontent.com/pw/AP1GczMt8Oibb7DGCRNZJblJhmxbtPKsF35_hmd3mn-jG-dy1H5rYpCUE89HiA-TYfyLQ6ZBGAm4ccFCrG40J1OTYAZlsxPq4FudoIS5xAI-7YHEkI1t1nNZxRPbOvun7iHvvd7ZwNySDry_1V2kvvnwLqD3=w1589-h1190-s-no-gm?authuser=0"},{"id":"default-2","title":"Ba vì","date":"Tháng 12, 2023","desc":"Cá bel Ba Vì, nước trong veoo","image":"https://lh3.googleusercontent.com/pw/AP1GczO5aqz7KLz-iYSlk_0AZ8uz44YP6Bykcnc8r8VF2E4H4vHnFWMf_26lsU75dTTycO3KGSXtTJH-l-1fUidZmEp4smwv2ZNjZzUr0LFUWPZQpiIXy6tn9TG3-Jq3tiH8D6sg9oit21xWuVoCIKShT_bU=w1589-h1190-s-no-gm?authuser=0"},{"id":"default-3","title":"Hòa Lạcccc","date":"Tháng 2, 2026","desc":"TThày Long Lô Lô","image":"https://lh3.googleusercontent.com/pw/AP1GczOy_2RihmQsiMV2gueT7ei8DRXIJqmOvsPxkDgAuSUEJ9vCnWW_eBMpyXq6lHkGptd7Zr8xOQ0zkMtovvuTcvYJOEhaMXBiBRp1WGyzHUfEIyapZ3Uv65RidrGpC3kSz8YkiQ8EU7pT-lrAEQ6J26hG=w1589-h1190-s-no-gm?authuser=0"}],"texts":{}}; 
+    
+    function loadState() {
+      if (INJECTED_STATE && (INJECTED_STATE.avatar || INJECTED_STATE.aboutImage || Object.keys(INJECTED_STATE.texts || {}).length > 0)) {
+        return INJECTED_STATE;
+      }
+      return {}; 
+    }
+
+    let state = loadState();
+
+    // Khôi phục lại dữ liệu kỉ niệm gốc
+    if (!state.memories || state.memories.length === 0) {
+      state.memories = [
+        { id: 'default-1', title: 'Ngày đầu nhập học', date: 'Tháng 9, 2023', desc: 'Bỡ ngỡ nhưng đầy háo hức với môi trường đại học.', image: '' },
+        { id: 'default-2', title: 'Thức đêm làm dự án', date: 'Tháng 12, 2023', desc: 'Đồ án nhóm đầu tiên cực cháy cùng những người bạn tuyệt vời.', image: '' },
+        { id: 'default-3', title: 'Khám phá AI lần đầu', date: 'Tháng 3, 2024', desc: 'Trải nghiệm đầu tiên với ChatGPT và Gemini — mở ra thế giới mới.', image: '' }
+      ];
+    }
+
+    // ===== Navigation & UI Logic =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY + 200;
+      sections.forEach(s => {
+        if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+          navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + s.id));
+        }
+      });
+    });
+
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinksEl = document.getElementById('navLinks');
+    let menuOpen = false;
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      Object.assign(navLinksEl.style, menuOpen ? {
+        display:'flex',flexDirection:'column',position:'absolute',top:'100%',
+        left:'0',right:'0',background:'rgba(255,255,255,0.98)',padding:'20px',
+        borderBottom:'4px solid #000',backdropFilter:'blur(20px)', zIndex:'999'
+      } : { display:'',flexDirection:'',position:'',top:'',left:'',right:'',background:'',padding:'',borderBottom:'',backdropFilter:'', zIndex:''});
+      mobileMenuBtn.textContent = menuOpen ? '✕' : '☰';
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (innerWidth <= 768) { menuOpen = false; navLinksEl.style.display = ''; mobileMenuBtn.textContent = '☰'; }
+    }));
+
+    // ===== Content Renderers =====
+    function renderAvatar() {
+      const heroAvatar = document.getElementById('heroAvatar');
+      if (state.avatar) {
+        heroAvatar.innerHTML = `<img src="${state.avatar}" alt="Avatar">`;
+      } else {
+        heroAvatar.innerHTML = '<div class="avatar-placeholder" style="width:100%;height:100%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;">🧑‍🎓</div>';
+      }
+    }
+
+    function renderAboutImage() {
+      const aboutImageCard = document.getElementById('aboutImageCard');
+      if (!aboutImageCard) return;
+      if (state.aboutImage) {
+        aboutImageCard.innerHTML = `<img src="${state.aboutImage}" alt="About Me"><div class="overlay"></div>`;
+      } else {
+        aboutImageCard.innerHTML = '<div class="memory-placeholder" style="width:100%;height:100%;font-size:1.5rem;font-weight:700;color:#000;background:#e5e5e5;display:flex;align-items:center;justify-content:center;">Chưa có ảnh</div>';
+      }
+    }
+
+    function renderMemories() {
+      const grid = document.getElementById('memoriesGrid');
+      const memories = state.memories || [];
+      grid.innerHTML = ''; // Clear everything
+      
+      memories.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'memory-card reveal visible';
+        const imgHtml = m.image ? `<div class="memory-img-wrapper"><img class="memory-img" src="${m.image}" alt="${m.title}"><div class="memory-date-tag">${m.date || ''}</div></div>` : `<div class="memory-placeholder" style="position:relative;">📸<div class="memory-date-tag">${m.date || ''}</div></div>`;
+        card.innerHTML = `${imgHtml}<div class="memory-body"><h4>${m.title}</h4><p>${m.desc}</p></div>`;
+        if (m.image) card.addEventListener('click', () => {
+          document.getElementById('lightboxImg').src = m.image;
+          document.getElementById('lightboxCaption').textContent = m.title || '';
+          document.getElementById('lightbox').classList.add('active');
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function formatListToHtml(text) { return !text ? '' : text.split('\n').filter(l => l.trim()).map(l => `<li>${l.trim()}</li>`).join(''); }
+
+    function renderTexts() {
+      if(!state.texts) return;
+      if(state.texts.heroTitle && document.getElementById('heroTitle')) document.getElementById('heroTitle').innerHTML = state.texts.heroTitle;
+      const hl = state.texts.heroHighlight || 'Nguyễn Bá  Quân';
+      ['heroHighlight', 'footerName'].forEach(id => { if(document.getElementById(id)) document.getElementById(id).innerHTML = hl; });
+      ['heroDesc', 'aboutMotto', 'aboutInfoTitle', 'aboutInfoText', 'aboutTitle', 'aboutP1', 'aboutP2', 'aboutLabel1', 'aboutText1', 'aboutLabel2', 'aboutText2'].forEach(id => {
+        if(state.texts[id] && document.getElementById(id)) document.getElementById(id).innerHTML = state.texts[id];
+      });
+      for(let i=1; i<=3; i++){
+        if(state.texts[`sumTitle${i}`]) document.getElementById(`sumTitle${i}`).innerHTML = state.texts[`sumTitle${i}`];
+        if(state.texts[`sumDesc${i}`]) document.getElementById(`sumDesc${i}`).innerHTML = state.texts[`sumDesc${i}`];
+        if(state.texts[`sumList${i}`]) document.getElementById(`sumList${i}`).innerHTML = formatListToHtml(state.texts[`sumList${i}`]);
+      }
+    }
+
+    function renderProjectUrls() {
+      const urls = state.projectUrls || {};
+      for (let i = 1; i <= 6; i++) {
+        const link = document.querySelector(`[data-project-link="${i}"]`);
+        const url = urls[i] || '';
+
+        if (link) {
+          if (url) {
+            link.href = url; link.target = '_blank'; link.rel = 'noopener';
+            link.innerHTML = 'Xem chi tiết →';
+            link.style.background = '#000'; link.style.color = '#fff';
+          } else {
+            link.href = '#'; link.target = '';
+            link.innerHTML = 'Chưa có link';
+            link.style.background = '#fff'; link.style.color = '#000';
+          }
+        }
+      }
+    }
+
+    // Lightbox events
+    document.getElementById('lightboxClose').addEventListener('click', () => document.getElementById('lightbox').classList.remove('active'));
+    document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.classList.remove('active'); });
+
+    // Initialize UI
+    renderAvatar();
+    renderAboutImage();
+    renderTexts();
+    renderMemories();
+    renderProjectUrls();
+    
+    if(state.hideMemories) {
+      document.getElementById('memories').style.display = 'none';
+      document.getElementById('navMemoriesLink').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
